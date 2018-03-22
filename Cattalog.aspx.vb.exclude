@@ -1,0 +1,5 @@
+﻿
+Partial Class Cattalog
+    Inherits System.Web.UI.Page
+
+End Class

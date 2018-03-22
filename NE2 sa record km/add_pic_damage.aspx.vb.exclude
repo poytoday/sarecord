@@ -1,0 +1,53 @@
+﻿#Region " Imports "
+Imports System
+Imports System.Data
+Imports System.Web.UI.WebControls
+Imports System.Collections
+Imports System.Configuration
+Imports System.Threading
+Imports System.Globalization
+Imports System.Data.OleDb
+Imports System.IO
+Imports System.Data.SqlClient
+#End Region
+Partial Class add_pic_damage
+    Inherits System.Web.UI.Page
+    Dim objConn As New SqlConnection
+    Dim objCmd As SqlCommand
+    Dim strConnString, strSQL As String
+    Protected Sub Button1_Click1(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Insert_file()
+    End Sub
+    Protected Sub Insert_file()
+        Dim fupath As FileUpload = Uploadfldpath 'CType(uploadDetailsView.FindControl("Uploadfldpath"), FileUpload)
+        Dim txtpath As TextBox = fldpath 'CType(uploadDetailsView.FindControl("fldpath"), TextBox)
+        If fupath.PostedFile.ContentLength > 0 Then
+            Dim sFileName As String = fupath.PostedFile.FileName
+            sFileName = sFileName.Remove(0, sFileName.LastIndexOfAny("\/".ToCharArray()) + 1)
+            fupath.PostedFile.SaveAs(Server.MapPath("upload/" + sFileName))
+        End If
+        Insert_Work_To_Pic()
+    End Sub
+    Protected Sub Insert_Work_To_Pic()
+        'Dim UserLogin As UserClass = CType(Session("User"), UserClass)
+        Dim Ds As New DataSet
+        Dim Dt As DataTable
+        Dim Dr As DataRow
+        Dim StrCon As New SqlConnection("SERVER=172.30.203.155; uid=sa;pwd=1234; database= SA_System")
+        Dim Adpt As New SqlDataAdapter("SELECT * FROM [Damage_PIC] WHERE 2<>2", StrCon)
+        Adpt.Fill(Ds, "Damage_PIC")
+        Dt = Ds.Tables("Damage_PIC")
+        Dr = Dt.NewRow
+        Dr("db_name") = Request.QueryString("dbname")
+        Dr("PATH_PIC") = Me.Uploadfldpath.FileName
+        Dr("Detail") = Me.TextBox1.Text
+        Dr("Type") = Me.RadioButtonList1.Text
+        Dr("damage_id") = Request.QueryString("damage_id")
+        Dr("damage_list_id") = Request.QueryString("damage_list_id")
+
+        Dt.Rows.Add(Dr)
+        Dim cdb As New SqlCommandBuilder(Adpt)
+        Adpt.Update(Ds, "Damage_PIC")
+        Ds.AcceptChanges()
+    End Sub
+End Class
