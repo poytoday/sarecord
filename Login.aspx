@@ -25,6 +25,7 @@
         {
             width: 915px;
         }
+        .errormsg {}
     </style>
 </head>
 <body>
@@ -94,7 +95,7 @@
                             <p>
                                 &nbsp;<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Forget_pass.aspx"
                                     Width="254px" Height="27px">&#3621;&#3639;&#3617;&#3619;&#3627;&#3633;&#3626;&#3612;&#3656;&#3634;&#3609;</asp:HyperLink>
-                                <asp:Label ID="lblMessage" runat="server" CssClass="errormsg" ForeColor="Red" Width="200px"></asp:Label>
+                                <asp:Label ID="lblMessage" runat="server" CssClass="errormsg" ForeColor="Red" Width="320px"></asp:Label>
                                 &nbsp;
                             </p>
                         </asp:Panel>

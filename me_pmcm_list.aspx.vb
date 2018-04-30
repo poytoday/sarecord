@@ -5,8 +5,8 @@ Partial Class me_pmcm_list
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         Me.GridView2.Visible = True
         'Me.Label1.Visible = True
-        Label7.Text = DD_before_y.SelectedValue & "-" & DD_before_m.SelectedValue & "-" & DD_before_d.SelectedValue & " 00:00:00"
-        Label8.Text = DD_after_y.SelectedValue & "-" & DD_after_m.SelectedValue & "-" & DD_after_d.SelectedValue & "  00:00:00"
+        Label7.Text = DD_before_y.SelectedValue - 543 & "-" & DD_before_m.SelectedValue & "-" & DD_before_d.SelectedValue & " 00:00:00"
+        Label8.Text = DD_after_y.SelectedValue - 543 & "-" & DD_after_m.SelectedValue & "-" & DD_after_d.SelectedValue & "  00:00:00"
         Me.SqlDataSource3.DataBind()
         Me.GridView2.DataBind()
     End Sub

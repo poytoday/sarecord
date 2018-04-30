@@ -3,8 +3,8 @@ Partial Class Report_Date
     Inherits System.Web.UI.Page
 
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
-   Label2.Text = DD_before_y.SelectedValue & "-" & DD_before_m.SelectedValue & "-" & DD_before_d.SelectedValue & " 00:00:00"
-        Label3.Text = DD_after_y.SelectedValue & "-" & DD_after_m.SelectedValue & "-" & DD_after_d.SelectedValue & "  00:00:00"
+        Label2.Text = DD_before_y.SelectedValue - 543 & "-" & DD_before_m.SelectedValue & "-" & DD_before_d.SelectedValue & " 00:00:00"
+        Label3.Text = DD_after_y.SelectedValue - 543 & "-" & DD_after_m.SelectedValue & "-" & DD_after_d.SelectedValue & "  00:00:00"
 
         SqlDataSource2.DataBind()
         GridView2.DataBind()

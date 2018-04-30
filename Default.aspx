@@ -57,6 +57,9 @@
             width: 174px;
         }
     </style>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
+  
+     <script type='text/javascript' src='//code.jquery.com/jquery-1.11.0.js'></script>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="3600" />
@@ -250,6 +253,7 @@
                                 <td>วันที่เริ่มดำเนินการ
                                 </td>
                                 <td>
+                                     
                                     <asp:TextBox ID="TextBox3" runat="server" Width="306px" Height="31px"></asp:TextBox>
                                     <asp:Calendar ID="Calendar1" runat="server" BackColor="#FFFFCC" BorderColor="#FFCC66"
                                         BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt"

@@ -198,7 +198,7 @@
                     </asp:Panel>
                   
 
-                   <asp:Panel ID="Panel3" runat="server">
+                   <asp:Panel ID="Panel3" runat="server" Visible="False">
                        <h3>
                            <table width="99%">
                                <tr>
