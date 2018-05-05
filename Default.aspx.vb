@@ -205,8 +205,8 @@ Partial Class _Default
         Dr = Dt.NewRow
         Dr("Damage_id") = Me.RadioButtonList3.SelectedValue
         Dr("pmcm_id") = Me.DropDownList4.Text
-        Dr("Cause") = Me.TextBox1.Text
-        Dr("Correction") = Me.TextBox3.Text
+        Dr("Cause") = Me.TextBox4.Text
+        Dr("Correction") = Me.TextBox6.Text
         Dt.Rows.Add(Dr)
         Dim cdb As New SqlCommandBuilder(Adpt)
         Adpt.Update(Ds, "Damage_List")
