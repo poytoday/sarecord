@@ -50,7 +50,11 @@
         <!-- For alternative headers START PASTE here -->
         <!-- A. HEADER -->
         <poy:header ID="UCmenu1" runat="server" />
-        <h3>
+          <div class="nav2">
+                                  
+                <h3 align="center">
+                   รับงานจากผู้แจ้งซ่อมเข้าแผนก </h3> 
+                 </div>
              <table width="99%">
                    <tr>
                     <td>
@@ -61,9 +65,11 @@
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                       
-                                        <asp:CommandField ShowSelectButton="True" HeaderImageUrl="~/images/icon_view.gif"  />
-                                        <asp:BoundField DataField="send_damage_id" HeaderText="เลขใบสั่ง" SortExpression="send_damage_id">
-                                            <ItemStyle Width="12%" />
+                                        <asp:CommandField ShowSelectButton="True" HeaderImageUrl="~/images/icon_view.gif"  >
+                                        <ItemStyle Width="5%" />
+                                        </asp:CommandField>
+                                        <asp:BoundField DataField="send_damage_id" HeaderText="เลขใบสั่ง(SA)" SortExpression="send_damage_id">
+                                            <ItemStyle Width="8%" />
                                         </asp:BoundField>
                                          <asp:BoundField DataField="date_in" HeaderText="วันที่ชำรุด" SortExpression="date_in"
                                             DataFormatString="{0:dd/MMM/yyyy}" HtmlEncode="False">
@@ -73,7 +79,7 @@
                                             <ItemStyle Width="25%" />
                                         </asp:BoundField>
                                        
-                                        <asp:BoundField DataField="book_num" HeaderText="เลขหนังสือ" SortExpression="book_num">
+                                        <asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program">
                                             <ItemStyle HorizontalAlign="Center" Width="12%" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" SortExpression="operation_order">
@@ -99,7 +105,7 @@
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
 
-                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT send_damage_id, db_name, damage, operation_order, date_in, book_num, status, pmcm_id, office_name FROM sa.send_damage WHERE (office_name = @office) AND (status = 0)">
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT send_damage_id, db_name, damage, operation_order, date_in, book_num, status, pmcm_id, office_name,from_program  FROM sa.send_damage WHERE (office_name = @office) AND (status = 0)">
                                     <SelectParameters>
                                         <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" />
                                     </SelectParameters>
@@ -222,7 +228,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style1">
-                        <asp:LinkButton ID="LinkButton2" runat="server" ValidationGroup="A1">เพิ่มการแจ้งอุปกรณ์ชำรุด</asp:LinkButton>
+                        <asp:LinkButton ID="LinkButton2" runat="server" ValidationGroup="A1">เพิ่มผู้ดำเนินการ</asp:LinkButton>
                         <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="DS_MAX_ID_PMCM"
                             DataTextField="MAX_id" DataValueField="MAX_id" Visible="False">
                         </asp:DropDownList>
@@ -230,10 +236,10 @@
                             SelectCommand="SELECT MAX( receive_damage_id) AS MAX_id FROM sa.Receive_damage">
                         </asp:SqlDataSource>
         <asp:SqlDataSource ID="DS_name" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-            SelectCommand="sa_select_name_recive" SelectCommandType="StoredProcedure">
+            SelectCommand="sa_select_name_recive2" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" Type="String" />
-                <asp:SessionParameter Name="P_user_out" SessionField="UserName" Type="Int32" />
+              
             </SelectParameters>
         </asp:SqlDataSource>
                         <br />
@@ -241,8 +247,11 @@
                 </tr>
             </table>
 
-        </h3>
-        <h3>
+        <div class="nav2">
+                                  
+                <h3 align="center">
+                   รายละเอียดใบงานต่างๆ</h3> 
+                 </div>
                                 <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No records found" CellPadding="3" Width="99%" AllowSorting="True" PageSize="30" 
                                     DataKeyNames="send_damage_id" AllowPaging="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
                                     <Columns>
@@ -258,7 +267,7 @@
                                         <%--<asp:BoundField DataField="position" HeaderText="position" SortExpression="position" />--%>
                                         
                                        
-                                        <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
+                                        <asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />
                                         <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
                                         <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
                                         <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
@@ -268,6 +277,8 @@
                                         <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" SortExpression="operation_order" />
 
                                         <asp:BoundField DataField="operation_recive" HeaderText="การดำเนินการ" SortExpression="operation_recive">
+                                        </asp:BoundField>
+                                         <asp:BoundField DataField="status" HeaderText="สถานะใบงาน" SortExpression="status">
                                         </asp:BoundField>
                                     </Columns>
                                     <EmptyDataRowStyle HorizontalAlign="Center" />
@@ -281,8 +292,8 @@
                                     <SortedDescendingCellStyle BackColor="#F1E5CE" />
                                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                                 </asp:GridView>
-            </h3>
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage_emp_id.receive_damage_id, sa.Receive_damage_emp_id.emp_id, sa.send_damage.send_damage_id, sa.send_damage.db_name, sa.send_damage.operation_order, sa.send_damage.date_in, sa.send_damage.book_num, sa.send_damage.status, sa.send_damage.pmcm_id, sa.send_damage.office_name, sa.[user].name, sa.[user].position, sa.send_damage.damage, sa.Receive_damage.operation_recive FROM sa.Receive_damage_emp_id INNER JOIN sa.Receive_damage ON sa.Receive_damage_emp_id.receive_damage_id = sa.Receive_damage.receive_damage_id INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id INNER JOIN sa.[user] ON sa.Receive_damage_emp_id.emp_id = sa.[user].userid WHERE (sa.send_damage.office_name = @office) ORDER BY sa.send_damage.date_in DESC">
+          
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage_emp_id.receive_damage_id, sa.Receive_damage_emp_id.emp_id, sa.send_damage.send_damage_id, sa.send_damage.db_name, sa.send_damage.operation_order, sa.send_damage.date_in,sa.send_damage.from_program, sa.send_damage.book_num, sa.send_damage.status, sa.send_damage.pmcm_id, sa.send_damage.office_name, sa.[user].name, sa.[user].position, sa.send_damage.damage, sa.Receive_damage.operation_recive FROM sa.Receive_damage_emp_id INNER JOIN sa.Receive_damage ON sa.Receive_damage_emp_id.receive_damage_id = sa.Receive_damage.receive_damage_id INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id INNER JOIN sa.[user] ON sa.Receive_damage_emp_id.emp_id = sa.[user].userid WHERE (sa.send_damage.office_name = @office) ORDER BY sa.send_damage.date_in DESC">
                                     <SelectParameters>
                                         <asp:SessionParameter Name="office" SessionField="UserOffice" />
                                     </SelectParameters>

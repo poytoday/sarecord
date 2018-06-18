@@ -84,7 +84,7 @@ Partial Class _Default
             Me.GridView1.DataBind()
             Me.GridView2.DataBind()
             Me.DropDownList4.Visible = False
-                Me.TextBox2.Text = ""
+            Me.TextBox2.Text = ""
             Me.TextBox1.Text = ""
             Me.TextBox3.Text = ""
             Me.TextBox4.Text = ""
@@ -104,6 +104,9 @@ Partial Class _Default
         Dim StrCon As New SqlConnection("SERVER=172.30.203.155; uid=sa;pwd=1234; database= SA_System")
         Dim Adpt As New SqlDataAdapter("SELECT * FROM sa.[pmcm_record] Where 1<>1", StrCon)
         strSQL = "UPDATE sa.Receive_damage SET status = 'True',pmcm_id = '" & Me.DropDownList4.Text & "' WHERE [receive_damage_id] = " & receive_damage_id
+        objCmd = New SqlCommand(strSQL, objConn)
+        objCmd.ExecuteNonQuery()
+        strSQL = "UPDATE  sa.send_damage SET status = 3  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
         objConn.Close()
@@ -205,8 +208,8 @@ Partial Class _Default
         Dr = Dt.NewRow
         Dr("Damage_id") = Me.RadioButtonList3.SelectedValue
         Dr("pmcm_id") = Me.DropDownList4.Text
-        Dr("Cause") = Me.TextBox1.Text
-        Dr("Correction") = Me.TextBox3.Text
+        Dr("Cause") = Me.TextBox4.Text
+        Dr("Correction") = Me.TextBox6.Text
         Dt.Rows.Add(Dr)
         Dim cdb As New SqlCommandBuilder(Adpt)
         Adpt.Update(Ds, "Damage_List")

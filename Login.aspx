@@ -50,7 +50,7 @@
                                             <strong><span style="font-size: 13pt">Login &nbsp; </span></strong>
                                             <img src="images/users.gif" />&nbsp;</td>
                                     </tr>--%>
-                                <tr>
+                               <%-- <tr>
                                     <td valign="top" align="right" style="width: 83px">
                                         Username:&nbsp;
                                     </td>
@@ -59,8 +59,8 @@
                                         <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="Username can not be empty."
                                             ControlToValidate="txtUserName" Display="Dynamic" Width="208px" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>--%>
+                               <%-- <tr>
                                     <td valign="top" align="right" style="width: 83px">
                                         Password:&nbsp;
                                     </td>
@@ -76,7 +76,7 @@
                                         <asp:CheckBox ID="chbSavePassword" runat="server" TextAlign="Left" CssClass="checkbox"
                                             Text="Remember Password" Width="232px" Checked="True"></asp:CheckBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                               <%--  <tr>
                                     <td align="center" colspan="2" style="height: 20px">
                                         &nbsp;

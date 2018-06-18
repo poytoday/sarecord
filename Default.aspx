@@ -147,10 +147,11 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>งานที่รับมอบหมาย :
+                                <td>งานที่รับมอบหมาย (ผูกงานจากใบสั่ง):
                                 </td>
                                 <td class="style17">
-                                    <asp:GridView ID="GridView2" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource4" EmptyDataText="No records found" ForeColor="#333333" GridLines="Horizontal" PageSize="5" Width="99%" DataKeyNames="receive_damage_id">
+                                    <asp:GridView ID="GridView2" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource4" 
+                                        EmptyDataText="No records found" ForeColor="#333333" GridLines="Horizontal" PageSize="5" Width="99%" DataKeyNames="send_damage_id">
                                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                         <Columns>
                                             <asp:CommandField ShowSelectButton="True" HeaderImageUrl="~/images/icon_view.gif" />
@@ -160,9 +161,9 @@
                                             </asp:BoundField>
                                             <asp:BoundField DataField="operation_recive" HeaderText="หผ. ให้ดำเนินการ" SortExpression="operation_recive"></asp:BoundField>
                                             <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage"></asp:BoundField>
-                                            <asp:BoundField DataField="operation_order" HeaderText="ผู้แจ้ง ให้ดำเนินการ" SortExpression="operation_order"></asp:BoundField>
+                                            <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" SortExpression="operation_order"></asp:BoundField>
 
-                                            <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
+                                            <asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />
                                         </Columns>
                                         <EditRowStyle BackColor="#999999" />
                                         <EmptyDataRowStyle HorizontalAlign="Center" />
@@ -176,7 +177,7 @@
                                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage.operation_recive, sa.send_damage.damage, sa.send_damage.operation_order, sa.send_damage.date_in, sa.send_damage.book_num, sa.Receive_damage.receive_damage_id FROM sa.Receive_damage INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id WHERE (sa.Receive_damage.status = 0) AND (sa.send_damage.office_name = @office)">
+                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage.operation_recive, sa.send_damage.damage, sa.send_damage.operation_order, sa.send_damage.date_in, sa.send_damage.book_num, sa.Receive_damage.receive_damage_id,sa.send_damage.send_damage_id, sa.send_damage.status, sa.send_damage.from_program  FROM sa.Receive_damage INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id WHERE (sa.send_damage.status = 2) AND (sa.send_damage.office_name = @office)">
                                         <SelectParameters>
                                             <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" />
                                         </SelectParameters>
@@ -276,11 +277,17 @@
                                 </td>
                                 <td class="style4">
                                     <asp:DropDownList ID="DropDownList3" runat="server" Height="31px" Width="66px">
-                                        <asp:ListItem Value="1">1 วัน</asp:ListItem>
-                                        <asp:ListItem Value="2">2 วัน</asp:ListItem>
-                                        <asp:ListItem Value="3">3 วัน</asp:ListItem>
-                                        <asp:ListItem Value="4">4 วัน</asp:ListItem>
-                                        <asp:ListItem Value="5">5 วัน</asp:ListItem>
+                                         <asp:ListItem Value="1">1 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="2">2 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="3">3 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="4">4 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="5">5 ชม.</asp:ListItem>
+                                         <asp:ListItem Value="6">6 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="7">7 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="8">8 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="9">9 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="10">10 ชม.</asp:ListItem>
+                                   
                                         <asp:ListItem Value="99">&gt; 5 วัน</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>

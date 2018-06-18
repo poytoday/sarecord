@@ -17,6 +17,7 @@ Partial Class send_damage
 
     Protected Sub LinkButton2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LinkButton2.Click
         Dim office As String
+        Dim UserLogin As UserClass = CType(Session("User"), UserClass)
         For Each Item In Me.CheckBoxList1.Items
             Dim Checked As Boolean = Item.selected
             If Checked = True Then
@@ -36,11 +37,15 @@ Partial Class send_damage
         'Dr("db_name") = Me.DD_Device.SelectedValue.ToString
         Dr("date_in") = Me.Calendar1.SelectedDate
         Dr("damage") = Me.TextBox1.Text
-        Dr("book_num") = Me.TextBox3.Text
-        Dr("status") = False
+                Dr("book_num") = Me.TextBox3.Text
+                Dr("from_program") = "SA Record"
+                Dr("status") = False
                 Dr("office_name") = office
-        Dr("operation_order") = Me.TextBox2.Text
-        Dt.Rows.Add(Dr)
+                Dr("operation_order") = Me.TextBox2.Text
+                Dr("em_id_send") = CInt(UserLogin.UserName)
+
+
+                Dt.Rows.Add(Dr)
         Dim cdb As New SqlCommandBuilder(Adpt)
         Adpt.Update(Ds, "send_damage")
         Ds.AcceptChanges()

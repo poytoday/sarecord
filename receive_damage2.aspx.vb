@@ -41,6 +41,7 @@ Partial Class receive_damage2
             Dr("operation_recive") = Me.TextBox2.Text
             Dr("office_name") = Session("UserOffice")
             Dr("status") = False
+
             Dt.Rows.Add(Dr)
             Dim cdb As New SqlCommandBuilder(Adpt)
             Adpt.Update(Ds, "Receive_damage")

@@ -46,9 +46,11 @@
         <!-- For alternative headers START PASTE here -->
         <!-- A. HEADER -->
         <poy:header ID="UCmenu1" runat="server" />
-                        <h3 align="center">
-                            แจ้งอุปกณ์ชำรุด</h3>
-        <h3>
+                         <div class="nav2">
+                                  
+                <h3 align="center">
+                   แจ้งอุปกรณ์ชำรุด</h3> 
+                 </div>
 
             <table width="99%">
                 <tr>
