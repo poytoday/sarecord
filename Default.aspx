@@ -308,7 +308,8 @@
                                 <td class="style1">
                                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal" AutoPostBack="True">
                                         <asp:ListItem>ปกติ</asp:ListItem>
-                                        <asp:ListItem>มีอาการชำรุด</asp:ListItem>
+                                        <asp:ListItem>มีอาการชำรุด 1 อาการ</asp:ListItem>
+                                        <asp:ListItem>มีอาการชำรุดมากกว่า 1 อาการ</asp:ListItem>
                                     </asp:RadioButtonList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="RadioButtonList1"
                                         ErrorMessage="เลือกความผิดปกติ" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>

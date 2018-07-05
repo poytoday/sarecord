@@ -72,12 +72,13 @@ Partial Class _Default
             End If
 
 
-            If Me.RadioButtonList1.Text = "มีอาการชำรุด" Then
+            If Me.RadioButtonList1.Text = "มีอาการชำรุด 1 อาการ" Then
                 insert_damage()
-                'Dim url As String
-                'url = "add_damage.aspx?pmcm_id=" & Me.DropDownList4.Text & "&id_type_frtu=" & Me.DD_Type_Device.SelectedValue
-                'Response.Redirect(url)
-            Else
+
+            ElseIf Me.RadioButtonList1.Text = "มีอาการชำรุดมากกว่า 1 อาการ" Then
+                Dim url As String
+                url = "add_damage.aspx?pmcm_id=" & Me.DropDownList4.Text & "&id_type_frtu=" & Me.DD_Type_Device.SelectedValue
+                Response.Redirect(url)
                 'url = "Default.aspx"
             End If
             Me.SqlDataSource2.DataBind()
@@ -251,7 +252,7 @@ Partial Class _Default
 
 
     Private Sub RadioButtonList1_TextChanged(sender As Object, e As EventArgs) Handles RadioButtonList1.TextChanged
-        If Me.RadioButtonList1.SelectedValue <> "ปกติ" Then
+        If Me.RadioButtonList1.SelectedValue = "มีอาการชำรุด 1 อาการ" Then
 
             Me.Panel1.Visible = True
 
