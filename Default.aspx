@@ -288,7 +288,7 @@
                                         <asp:ListItem Value="9">9 ชม.</asp:ListItem>
                                         <asp:ListItem Value="10">10 ชม.</asp:ListItem>
                                    
-                                        <asp:ListItem Value="99">&gt; 5 วัน</asp:ListItem>
+                                        <asp:ListItem Value="99">&gt; 1 วัน</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>

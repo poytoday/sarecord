@@ -260,4 +260,23 @@ Partial Class _Default
             Me.Panel1.Visible = False
         End If
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim Ds As New DataSet
+        Dim Dt As DataTable
+        Dim Dr As DataRow
+        Dim StrCon As New SqlConnection("SERVER=172.30.203.155; uid=sa;pwd=1234; database= SA_System")
+        Dim Adpt As New SqlDataAdapter("SELECT * FROM sa.[Damage_Type]", StrCon)
+        Adpt.Fill(Ds, "Damage_Type")
+        Dt = Ds.Tables("Damage_Type")
+        Dr = Dt.NewRow
+        Dr("id_type_frtu") = Me.DD_Type_Device.SelectedValue
+        Dr("damage_name") = Me.TextBox5.Text
+        Dt.Rows.Add(Dr)
+        Dim cdb As New SqlCommandBuilder(Adpt)
+        Adpt.Update(Ds, "Damage_Type")
+        Ds.AcceptChanges()
+        Me.TextBox5.Text = ""
+        Me.RadioButtonList3.DataBind()
+    End Sub
 End Class

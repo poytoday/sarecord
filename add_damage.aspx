@@ -146,7 +146,7 @@
                             AutoPostBack="True" ValidationGroup="C">
                         </asp:RadioButtonList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="RadioButtonList1"
-                            ErrorMessage="เลือกอาการชำรุด" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>
+                            ErrorMessage="เลือกอาการชำรุด" ForeColor="Red" ValidationGroup="B"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
