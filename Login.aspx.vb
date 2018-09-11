@@ -46,7 +46,7 @@ Partial Class Login
         Try
             Dim session As HttpCookie = Request.Cookies("Login")
             Dim ck_id As HttpCookie = Request.Cookies("LoginID")
-
+            '
             If session.Value = True And ck_id.Value <> "" Then
 
 

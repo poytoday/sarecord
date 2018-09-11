@@ -84,6 +84,7 @@
                         <li><a href="frist.aspx">My Work</a></li>
                         <li><a href="mylink.aspx">My link</a></li>
                         <li><a href="me_pmcm_list.aspx">My operation</a></li>
+                         <li><a href="recevice_person_issue.aspx">My Issuse</a></li>
                         <li><a href="person.aspx">Me</a></li>
                     </ul>
                 </li>
