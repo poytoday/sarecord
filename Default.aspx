@@ -150,6 +150,7 @@
                                 <td>งานที่รับมอบหมาย (ผูกงานจากใบสั่ง):
                                 </td>
                                 <td class="style17">
+                                    <br />
                                     <asp:GridView ID="GridView2" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource4" 
                                         EmptyDataText="No records found" ForeColor="#333333" GridLines="Horizontal" PageSize="5" Width="99%" DataKeyNames="send_damage_id">
                                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -177,17 +178,20 @@
                                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage.operation_recive, sa.send_damage.damage, sa.send_damage.operation_order, sa.send_damage.date_in, sa.send_damage.book_num, sa.Receive_damage.receive_damage_id,sa.send_damage.send_damage_id, sa.send_damage.status, sa.send_damage.from_program  FROM sa.Receive_damage INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id WHERE (sa.send_damage.status = 2) AND (sa.send_damage.office_name = @office)">
+                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT  [operation_recive],[damage] ,[operation_order],[date_in],[book_num],[receive_damage_id],[send_damage_id],[status],[from_program],[emp_id],[office_name]  FROM [SA_System].[sa].[View_recive_damage_emp_id] WHERE (emp_id = @Emp_ID)">
                                         <SelectParameters>
                                             <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" />
+                                                <asp:SessionParameter DefaultValue="" Name="Emp_ID" SessionField="UserName" Type="Int32" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
+                                      <br />
                                 </td>
                             </tr>
                             <tr>
                                 <td>รายการย้อนหลัง
                                 </td>
                                 <td>
+                                      <br />
                                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="pmcm_id"
                                         DataSourceID="SqlDataSource2" AllowPaging="True" BackColor="White" BorderColor="#DEDFDE"
                                         BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical"
@@ -237,6 +241,7 @@
                                                 Type="String" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
+                                      <br />
                                 </td>
                             </tr>
                             <tr>
@@ -273,7 +278,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>จำนวนวันในการปฏิบัติงาน
+                                <td>ชั่วโมงในการปฏิบัติงาน
                                 </td>
                                 <td class="style4">
                                     <asp:DropDownList ID="DropDownList3" runat="server" Height="31px" Width="66px">

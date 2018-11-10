@@ -39,7 +39,7 @@ Partial Class send_damage
         Dr("damage") = Me.TextBox1.Text
                 Dr("book_num") = Me.TextBox3.Text
                 Dr("from_program") = "SA Record"
-                Dr("status") = False
+                Dr("status") = 1
                 Dr("office_name") = office
                 Dr("operation_order") = Me.TextBox2.Text
                 Dr("em_id_send") = CInt(UserLogin.UserName)

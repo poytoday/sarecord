@@ -51,7 +51,7 @@ Partial Class Login
 
 
                 login_sa(ck_id.Value)
-                ' login_sa(495151)
+                'login_sa(495151)
                 Response.Redirect(session("firstpage").ToString)
 
 

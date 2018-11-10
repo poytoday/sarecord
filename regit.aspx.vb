@@ -47,7 +47,7 @@ Partial Class regis
         'Me.Panel1.Visible = False
         'Me.Panel1.Visible = False
         Dim url As String
-        url = "smartdata.pra.co.th"
+        url = "http://smartdata.pea.co.th"
         Response.Redirect(url)
         ' Response.Write("<p>" + "คลิกที่นี่เพื่อทำการ " + "<a href=""Login.aspx"">&nbsp;" + "Login" + "</a></p>")
     End Sub

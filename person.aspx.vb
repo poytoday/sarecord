@@ -100,26 +100,31 @@ Partial Class person
         Me.Label6.Text = "Updated"
     End Sub
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
-        strSQL = "UPDATE sa.[user] SET id_team = '" & Me.DropDownList2.SelectedValue & "' WHERE [userid] = " & Session("UserName")
-        '& Request.QueryString("pmcm_id")
-        objCmd = New SqlCommand(strSQL, objConn)
-        objCmd.ExecuteNonQuery()
-        strSQL = "UPDATE sa.[user] SET team = '" & Me.DropDownList2.SelectedItem.Text & "' WHERE [userid] = " & Session("UserName")
-        '& Request.QueryString("pmcm_id")
-        objCmd = New SqlCommand(strSQL, objConn)
-        objCmd.ExecuteNonQuery()
-        Me.Label7.Text = "Updated"
+        Try
+            strSQL = "UPDATE sa.[user] SET id_team = '" & Me.DropDownList2.SelectedValue & "' WHERE [userid] = " & Session("UserName")
+            '& Request.QueryString("pmcm_id")
+            objCmd = New SqlCommand(strSQL, objConn)
+            objCmd.ExecuteNonQuery()
+            strSQL = "UPDATE sa.[user] SET team = '" & Me.DropDownList2.SelectedItem.Text & "' WHERE [userid] = " & Session("UserName")
+            '& Request.QueryString("pmcm_id")
+            objCmd = New SqlCommand(strSQL, objConn)
+            objCmd.ExecuteNonQuery()
+            Me.Label7.Text = "Updated"
+        Catch ex As Exception
+            Me.Label7.Text = ex.Message.ToString
+        End Try
+
     End Sub
-    Protected Sub Button2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button2.Click
-        strSQL = "UPDATE sa.[user] SET password = '" & Me.TextBox1.Text & "' WHERE [userid] = " & Session("UserName")
-        '& Request.QueryString("pmcm_id")
-        objCmd = New SqlCommand(strSQL, objConn)
-        objCmd.ExecuteNonQuery()
-        Me.Label8.Text = "Updated"
-        Dim url As String
-        url = "Login.aspx"
-        Response.Redirect(url)
-    End Sub
+    'Protected Sub Button2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button2.Click
+    '    strSQL = "UPDATE sa.[user] SET password = '" & Me.TextBox1.Text & "' WHERE [userid] = " & Session("UserName")
+    '    '& Request.QueryString("pmcm_id")
+    '    objCmd = New SqlCommand(strSQL, objConn)
+    '    objCmd.ExecuteNonQuery()
+    '    Me.Label8.Text = "Updated"
+    '    Dim url As String
+    '    url = "Login.aspx"
+    '    Response.Redirect(url)
+    'End Sub
     Protected Sub Button4_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button4.Click
         strSQL = "UPDATE sa.[user] SET name = '" & Me.firstname.Text & "' WHERE [userid] = " & Session("UserName")
         objCmd = New SqlCommand(strSQL, objConn)

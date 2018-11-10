@@ -54,7 +54,7 @@ Partial Class receive_damage2
             'Dim url As String
             'url = "list_receive_damage.aspx"
             'Response.Redirect(url)
-            strSQL = "UPDATE [SA_System].[sa].[send_damage] SET status = 1 where send_damage_id = " & Convert.ToString(dkKeys(0))
+            strSQL = "UPDATE [SA_System].[sa].[send_damage] SET status = 2 where send_damage_id = " & Convert.ToString(dkKeys(0))
             '& Request.QueryString("pmcm_id")
             objCmd = New SqlCommand(strSQL, objConn)
             objCmd.ExecuteNonQuery()

@@ -102,9 +102,9 @@
                     </td>
                     <td>
                         <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource1"
-                            DataTextField="type_frtu" DataValueField="ID" RepeatDirection="Horizontal" Width="269px"
+                            DataTextField="type_frtu" DataValueField="ID" RepeatDirection="Horizontal" Width="100%"
                             CellPadding="10" ClientIDMode="Predictable" ForeColor="Black" BorderStyle="None"
-                            EnableTheming="True" TabIndex="10" AutoPostBack="True" Visible="False" RepeatColumns="4">
+                            EnableTheming="True" TabIndex="10" AutoPostBack="True" Visible="False" RepeatColumns="3">
                         </asp:RadioButtonList>
                     </td>
                 </tr>

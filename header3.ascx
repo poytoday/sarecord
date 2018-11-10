@@ -124,6 +124,8 @@
                         <li><a href="order_section_his.aspx">เรียกดูงานตามสถานะ(หผ.)</a></li>
                         <li><a href="order_region_sum.aspx">ตรวจสอบงานจากหน่วยงาน(อก.)</a></li>
                         <li><a href="order_region_his.aspx">เรียกดูงานตามสถานะ(อก.)</a></li>
+                          <li><a href="issue_region.aspx">ตรวจสอบงานทั้งเขต</a></li>
+
                         <%--<li><a href="list_location.aspx">ประวัติการย้ายอุปกรณ์</a></li>--%>
                     </ul>
                     <!--[if lte IE 6]></td></tr></table></a><![endif]-->

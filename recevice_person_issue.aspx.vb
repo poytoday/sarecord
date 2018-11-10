@@ -15,17 +15,13 @@ Partial Class recevice_person_issue
 
 
         UserClass.CheckLogin(Page)
-        If Not func.CheckUserPermissions_access("recevice_person.aspx", Session("User_access")) Then
+        If Not func.CheckUserPermissions_access("recevice_person_issue.aspx", Session("User_access")) Then
             Response.Write("<p>" + "You don't have permissions to access this page" + "<a href=""login.aspx"">&nbsp;" + "Back to login page" + "</a></p>")
             Response.End()
         Else
             Dim UserLogin As UserClass = CType(Session("User"), UserClass)
         End If
-        UserClass.CheckLogin(Page)
-        If Not func.CheckUserPermissions("recevice_person.aspx", "S") Then
-            Response.Write("<p>" + "You don't have permissions to access this page" + "<a href=""smartdata.peaco.th"">&nbsp;" + "Back to login page" + "</a></p>")
-            Response.End()
-        End If
+
     End Sub
 
 End Class

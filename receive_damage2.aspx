@@ -105,7 +105,7 @@
                                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                 </asp:GridView>
 
-                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT send_damage_id, db_name, damage, operation_order, date_in, book_num, status, pmcm_id, office_name,from_program  FROM sa.send_damage WHERE (office_name = @office) AND (status = 0)">
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT send_damage_id, db_name, damage, operation_order, date_in, book_num, status, pmcm_id, office_name,from_program  FROM sa.send_damage WHERE (office_name = @office) AND (status = 1)">
                                     <SelectParameters>
                                         <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" />
                                     </SelectParameters>

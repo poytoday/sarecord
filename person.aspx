@@ -235,7 +235,7 @@
                                     <asp:Label ID="Label7" runat="server" ForeColor="#0066FF"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
+                          <%--  <tr>
                                 <td align="right" class="style11">
                                     New Password :
                                 </td>
@@ -246,7 +246,7 @@
                                     <asp:Button ID="Button2" runat="server" Text="Change" />
                                     <asp:Label ID="Label8" runat="server" ForeColor="#0066FF"></asp:Label>
                                 </td>
-                            </tr>
+                            </tr>--%>
                         </table>
                         <asp:Panel ID="Panel1" runat="server" Visible="False">
                             <h3>

@@ -71,7 +71,7 @@
                     <td>
                         <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource1"
                             DataTextField="type_frtu" DataValueField="ID" AutoPostBack="True" RepeatDirection="Horizontal"
-                            RepeatColumns="5" Width="99%">
+                            RepeatColumns="3" Width="99%">
                         </asp:RadioButtonList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                             SelectCommand="sa_select_type_frtu" SelectCommandType="StoredProcedure">

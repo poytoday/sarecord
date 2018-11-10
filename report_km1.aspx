@@ -78,7 +78,7 @@
                             </td>
                             <td class="style7">
                                 <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource2"
-                                    DataTextField="type_frtu" DataValueField="ID" RepeatColumns="4" 
+                                    DataTextField="type_frtu" DataValueField="ID" RepeatColumns="3" 
                                     RepeatDirection="Horizontal" Width="99%">
                                 </asp:RadioButtonList>
                             </td>

@@ -64,7 +64,8 @@ Partial Class select_detail_proprety
     Protected Sub ImageButton1_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ImageButton1.Click
         Me.GridView2.Visible = True
         Me.GridView2.DataBind()
-        ExportToExcel("Report.xls", GridView2)
+        ExportToExcel("SA_Report_property_" & Date.Now.ToShortDateString & ".xls", GridView2)
+
     End Sub
     Private Sub ExportToExcel(ByVal strFileName As String, ByVal dg As GridView)
         Response.Clear()

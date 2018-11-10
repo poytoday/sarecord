@@ -204,15 +204,24 @@
                     </tr>
                     <tr>
                         <td>
-                            จำนวนวันในการปฏิบัติงาน
+                            ชั่วโมงในการปฏิบัติงาน
                         </td>
                         <td class="style18">
                             <asp:DropDownList ID="DropDownList3" runat="server" Height="16px" Width="66px">
-                                <asp:ListItem Value="1">1 วัน</asp:ListItem>
-                                <asp:ListItem Value="2">2 วัน</asp:ListItem>
-                                <asp:ListItem Value="3">3 วัน</asp:ListItem>
-                                <asp:ListItem Value="4">4 วัน</asp:ListItem>
-                                <asp:ListItem Value="5">5 วัน</asp:ListItem>
+                               
+                                         <asp:ListItem Value="1">1 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="2">2 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="3">3 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="4">4 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="5">5 ชม.</asp:ListItem>
+                                         <asp:ListItem Value="6">6 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="7">7 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="8">8 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="9">9 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="10">10 ชม.</asp:ListItem>
+                                   
+                                        <asp:ListItem Value="99">&gt; 1 วัน</asp:ListItem>
+                                
                             </asp:DropDownList>
                         </td>
                         <td>
