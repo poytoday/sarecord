@@ -55,9 +55,9 @@ Partial Class recevice_person
             Dim strConnString As String = "Server=172.30.203.155;Uid=sa;PASSWORD=1234;database=SA_System;Max Pool Size=400;Connect Timeout=600;"
             objConn.ConnectionString = strConnString
             objConn.Open()
-            strSQL = "UPDATE  sa.send_damage SET status = 2 WHERE " & sKeysArg
-            '& Request.QueryString("pmcm_id")
-            objCmd = New SqlCommand(strSQL, objConn)
+                strSQL = "UPDATE  sa.send_damage SET status = 3 WHERE " & sKeysArg
+                '& Request.QueryString("pmcm_id")
+                objCmd = New SqlCommand(strSQL, objConn)
             objCmd.ExecuteNonQuery()
             Me.SqlDataSource1.DataBind()
             Me.SqlDataSource2.DataBind()

@@ -34,31 +34,12 @@
                    รายละเอียดงานที่ได้แจ้งไปยังหน่วยงานต่างๆ
                 </h3>  </div>
       
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
-                DataSourceID="SqlDataSource1" EmptyDataText="No records found" 
+            <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
+                DataSourceID="SqlDataSource1" EmptyDataText="No records found" OnRowCommand="GridView2_RowCommand"
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" 
                 BorderWidth="3px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id">
                 <Columns>
-                    <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
-                        ReadOnly="True" SortExpression="receive_damage_id" />--%>
-                    <%--<asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location"
-                        ReadOnly="True">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" 
-                    SortExpression="pmcm_id" />--%>
-                    <%--<asp:ButtonField CommandName="cmdAdd" HeaderImageUrl="~/images/icon_view.gif" Text="Add" />--%>
-                    <%--<asp:BoundField DataField="receive_damage_id" HeaderText="receive_damage_id" 
-                        SortExpression="receive_damage_id" >
-                    </asp:BoundField>--%>
-                      <%--<asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id">
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" 
-                        SortExpression="send_damage_id" InsertVisible="False" ReadOnly="True">
-                    </asp:BoundField>--%>
-<%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
-                        SortExpression="db_name">
-</asp:BoundField>--%>
+                
                     <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"/>
                    
                     
@@ -75,7 +56,8 @@
                   <%--  <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />--%>
 
                     <asp:BoundField DataField="status" HeaderText="สถานะรับงาน" SortExpression="status" />
-              <%--        <asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="รับงาน" />--%>
+            
+                                    <asp:ButtonField CommandName="cmdDelet" HeaderImageUrl="~/images/icon_view.gif" Text="Delete" />
                 </Columns>
                 <EmptyDataRowStyle HorizontalAlign="Center" />
                 <FooterStyle BackColor="White" ForeColor="#333333" />
@@ -90,9 +72,6 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                 SelectCommand="sa_receive_damage_person_issuse" 
-                DeleteCommand="DELETE FROM sa.[Receive_damage] WHERE [receive_damage_id] = @receive_damage_id"
-                InsertCommand="INSERT INTO sa.[Receive_damage] ([db_name], [damage], [date_in], [book_num], [status], [pmcm_id]) VALUES (@db_name, @damage, @date_in, @book_num, @status, @pmcm_id)"
-                UpdateCommand="UPDATE sa.[Receive_damage] SET  [status] = @status WHERE [receive_damage_id] = @receive_damage_id"
                 SelectCommandType="StoredProcedure">
                 <DeleteParameters>
                     <asp:Parameter Name="receive_damage_id" Type="Int32" />

@@ -107,7 +107,7 @@ Partial Class _Default
         strSQL = "UPDATE sa.Receive_damage SET status = 'True',pmcm_id = '" & Me.DropDownList4.Text & "' WHERE [receive_damage_id] = " & receive_damage_id
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
-        strSQL = "UPDATE  sa.send_damage SET status = 3  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+        strSQL = "UPDATE  sa.send_damage SET status = 4  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
         objConn.Close()

@@ -4,7 +4,7 @@ Partial Class Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        ' Dim aCookie As HttpCookie = New HttpCookie("UserInfo")
+        'Dim aCookie As HttpCookie = New HttpCookie("UserInfo")
         'Dim Login As New HttpCookie(“Login”)
         'Dim LoginID As New HttpCookie(“LoginID”)
 
@@ -51,7 +51,7 @@ Partial Class Login
 
 
                 login_sa(ck_id.Value)
-                'login_sa(495151)
+                'login_sa(444678)
                 Response.Redirect(session("firstpage").ToString)
 
 

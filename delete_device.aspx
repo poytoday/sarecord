@@ -78,7 +78,7 @@
                             <td >
                                 <asp:RadioButtonList ID="RadioButtonList1" runat="server" AutoPostBack="True" 
                                     DataSourceID="DS_Type_Device" DataTextField="type_frtu" DataValueField="ID" 
-                                    RepeatDirection="Horizontal" RepeatColumns="5">
+                                    RepeatDirection="Horizontal" RepeatColumns="3" Width="100%">
                                 </asp:RadioButtonList>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="RadioButtonList1"
                                     ErrorMessage="เลือกประเภทอุปกรณ์" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>
