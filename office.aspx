@@ -52,7 +52,7 @@
         <div class="header">
             <div class="nav2">
                 <h3 align="center">
-                    เพิ่ม/แก้ไข หน่วยงาน 
+                    เพิ่ม/แก้ไข แผนก 
                 </h3>
             </div>
         </div>
@@ -89,7 +89,7 @@
                 </tr>
                 <tr>
                     <td class="style5" align="right">
-                        หน่วยงาน :
+                        แผนก :
                     </td>
                     <td class="style5">
                         <asp:TextBox ID="TextBox1" runat="server" Width="306px" Height="24px"></asp:TextBox>

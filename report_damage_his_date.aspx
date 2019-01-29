@@ -94,6 +94,7 @@
                         <tr>
                             <td style="background-color: #C0C0C0">
                                 <asp:DropDownList ID="DD_before_y" runat="server">
+                                    <asp:ListItem>2562</asp:ListItem>
                                     <asp:ListItem>2561</asp:ListItem>
                                     <asp:ListItem>2560</asp:ListItem>
                                     <asp:ListItem>2559</asp:ListItem>
@@ -154,6 +155,7 @@
                             </td>
                             <td style="background-color: #008080" class="style18">
                                 <asp:DropDownList ID="DD_after_y" runat="server">
+                                    <asp:ListItem>2562</asp:ListItem>
                                     <asp:ListItem>2561</asp:ListItem>
                                     <asp:ListItem>2560</asp:ListItem>
                                     <asp:ListItem>2559</asp:ListItem>

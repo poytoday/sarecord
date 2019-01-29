@@ -68,7 +68,7 @@
                     <table>
                      <tr>
                            <td align="right">
-                       องค์กร :
+                               เขต :
                          </td>
                             <td class="style4" align="left">
                                 <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" 
@@ -91,7 +91,7 @@
                                </tr>
                         <tr>
                             <td align="right">
-                                หน่วยงาน :
+                                แผนก :
                             </td>
                             <td class="style5">
                                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource2"

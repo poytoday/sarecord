@@ -68,7 +68,7 @@ Partial Class order_section_sum_detail
             Me.Label2.Text = dt.Rows(0)("op_id").ToString
             Me.Label4.Text = dt.Rows(0)("operation").ToString
             Me.Label5.Text = dt.Rows(0)("date_operate").ToString
-            Me.Label6.Text = dt.Rows(0)("date_num").ToString & " วัน"
+            Me.Label6.Text = dt.Rows(0)("date_num").ToString & " ชม."
             Me.Label7.Text = dt.Rows(0)("status_work").ToString
             Me.Label8.Text = dt.Rows(0)("remark").ToString
             Me.Label3.Text = dt.Rows(0)("sap_id").ToString

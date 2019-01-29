@@ -91,8 +91,8 @@
                 <asp:QueryStringParameter Name="pmcm_id" QueryStringField="pmcm_id" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <h3 align="center">
-            รูปภาพ-เอกสาร ของอุปกรณ์</h3>
+<%--        <h3 align="center">
+            รูปภาพ-เอกสาร ของอุปกรณ์</h3>--%>
         <asp:Panel ID="pnlForm3" runat="server">
             <table width="99%">
                 <tr>
@@ -100,7 +100,7 @@
                             รูปภาพและเอกสาร :</h3>
                         </td>--%>
                     <td>
-                        <h3>
+    <%--                    <h3>
                             <asp:GridView ID="GridView5" runat="server" AutoGenerateColumns="False" BorderStyle="None"
                                 CssClass="Grid" DataSourceID="SqlDataSource5" EmptyDataText="No Picture found"
                                 OnRowCommand="GridView5_RowCommand" Width="99%" DataKeyNames="RUN_ID" BackColor="White"
@@ -140,7 +140,7 @@
                                 <SortedDescendingCellStyle BackColor="#EAEAD3" />
                                 <SortedDescendingHeaderStyle BackColor="#575357" />
                             </asp:GridView>
-                        </h3>
+                        </h3>--%>
                         <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                             SelectCommand="SELECT * FROM sa.[Damage_PIC] WHERE ([pmcm_id] = @pmcm_id and damage_id = @id_damage)"
                             DeleteCommand="DELETE FROM sa.Device_PIC WHERE (pmcm_id = @pmcm_id)">
@@ -158,7 +158,7 @@
                 </tr>
             </table>
             <h3>
-                <table width="99%">
+                <%--<table width="99%">
                     <tr>
                         <td class="style7">
                             <asp:RadioButtonList ID="RadioButtonList2" runat="server" Height="56px" RepeatDirection="Horizontal"
@@ -203,7 +203,7 @@
                             <asp:Button ID="Button1" runat="server" Text="เพิ่มรูปภาพ" ValidationGroup="B" />
                         </td>
                     </tr>
-                </table>
+                </table>--%>
             </h3>
         </asp:Panel>
         <h3>

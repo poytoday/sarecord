@@ -62,6 +62,7 @@ Partial Class send_damage
         Me.TextBox3.Text = ""
         Me.Label1.Text = ""
         Me.CheckBoxList1.DataBind()
+        Me.GridView3.DataBind()
         'url = "send_damage.aspx"
         'Response.Redirect(url)
     End Sub

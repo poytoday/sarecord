@@ -127,7 +127,79 @@
                     </td>
                 </tr>
             </table>
+        <table>
+            <tr>
+                <td>
+
+
+                </td>
+            </tr>
+        </table>
         </h3>
+           <div class="nav2">
+                                  
+                <h3 align="center">
+                   รายละเอียดใบงานต่างๆภายในแผนก</h3> 
+                 </div>
+                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No records found" CellPadding="3" Width="99%" AllowSorting="True" PageSize="20" 
+                                    DataKeyNames="send_damage_id" AllowPaging="True" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal">
+                                    <AlternatingRowStyle BackColor="#F7F7F7" />
+                                    <Columns>
+                      
+                                       <%-- <asp:BoundField DataField="receive_damage_id" HeaderText="receive_damage_id" SortExpression="receive_damage_id">
+                                        </asp:BoundField>--%>
+                                         <%--<asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id" />--%>
+                                        <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" InsertVisible="False" ReadOnly="True" SortExpression="send_damage_id" />--%>
+                                         <%--<asp:BoundField DataField="db_name" HeaderText="db_name" SortExpression="db_name">
+                                        </asp:BoundField>--%>
+                                        <%--<asp:BoundField DataField="position" HeaderText="position" SortExpression="position" />--%>
+                                        
+                                       
+                                        <%--<asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />--%>
+                                        <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
+                                        <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
+                                        <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
+                                        
+                                        <%--<asp:BoundField DataField="operation_recive" HeaderText="การดำเนินการ" SortExpression="operation_recive">
+                                        </asp:BoundField>--%>
+                                         <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in"  DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"  >
+                                        <ItemStyle Width="8%" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="name" HeaderText="ผู้แจ้ง" SortExpression="name" >
+                                        <ItemStyle Width="10%" />
+                                        </asp:BoundField>
+                                         <asp:BoundField DataField="status" HeaderText="สถานะใบงาน" SortExpression="status">
+                                        <ItemStyle Width="7%" />
+                                        </asp:BoundField>
+                                        
+                                        <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage">
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" SortExpression="operation_order" />
+
+                                    </Columns>
+                                    <EmptyDataRowStyle HorizontalAlign="Center" />
+                                    <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                                    <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                    <PagerStyle ForeColor="#4A3C8C" HorizontalAlign="Right" BackColor="#E7E7FF" />
+                                    <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                                    <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                                    <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                                    <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                                    <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                                    <SortedDescendingHeaderStyle BackColor="#3E3277" />
+                                </asp:GridView>
+          
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT        sa.send_damage.send_damage_id, sa.send_damage.db_name, sa.send_damage.operation_order, sa.send_damage.date_in, sa.send_damage.from_program, sa.send_damage.book_num, 
+                         sa.send_damage.status, sa.send_damage.pmcm_id, sa.send_damage.office_name, sa.[user].name, sa.send_damage.damage
+FROM            sa.[user] INNER JOIN
+                         sa.send_damage ON sa.[user].userid = sa.send_damage.em_id_send
+WHERE        (sa.send_damage.office_name = @office)
+ORDER BY sa.send_damage.date_in DESC">
+                                    <SelectParameters>
+                                        <asp:SessionParameter Name="office" SessionField="UserOffice" />
+                                    </SelectParameters>
+        </asp:SqlDataSource>
+          
         <poy:tail ID="tail1" runat="server" />
     </div>
     <p>

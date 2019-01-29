@@ -29,8 +29,27 @@
         <!-- A. HEADER -->
         <poy:header ID="UCmenu1" runat="server" />
          
-        <div class="page-container"> <div class="nav2">
-                                  
+        <div class="page-container"> 
+                   <table width="99%">
+                        <tr>
+                            <td align="right" bgcolor="White">
+                                เลือกแผนก :
+                            </td>
+                            <td>
+                                   <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource5"
+                                    DataTextField="office" DataValueField="office" Height="16px" Width="219px" AutoPostBack="True">
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                                    
+                                    SelectCommand="SELECT office FROM sa.office_name WHERE (region = @P_region)">
+                                        <SelectParameters>
+                    <asp:SessionParameter Name="P_region" SessionField="UserRegion" Type="string"/>
+                </SelectParameters>
+                                </asp:SqlDataSource>
+                            </td>
+                        </tr>
+                       </table>
+            <div class="nav2">
                 <h3 align="center">
                    งานทีแจ้งอาการชำรุด(รอแผนกรับงาน)
                 </h3>  </div>
@@ -38,7 +57,7 @@
             <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False"
                 DataSourceID="SqlDataSource4" EmptyDataText="No records found" OnRowCommand="GridView1_RowCommand"
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" 
-                BorderWidth="1px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id" ForeColor="Black">
+                BorderWidth="1px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id" ForeColor="Black" AllowPaging="True">
                 <Columns>
                     <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
                         ReadOnly="True" SortExpression="receive_damage_id" />--%>
@@ -60,20 +79,20 @@
 <%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
                         SortExpression="db_name">
 </asp:BoundField>--%>
-                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"/>
+                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False"/>
                    
                     
-                    <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
+                    <%--<asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />--%>
                     <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
                     <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
                     <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
                     <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
-                    <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
+                     <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />
+                    <%--<asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />--%>
 
                     <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
                       <%--<asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="รับงาน" />--%>
@@ -90,29 +109,16 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                 SelectCommand="sa_receive_damage_region_issuse"
-                DeleteCommand="DELETE FROM sa.[Receive_damage] WHERE [receive_damage_id] = @receive_damage_id"
-                InsertCommand="INSERT INTO sa.[Receive_damage] ([db_name], [damage], [date_in], [book_num], [status], [pmcm_id]) VALUES (@db_name, @damage, @date_in, @book_num, @status, @pmcm_id)"
-                UpdateCommand="UPDATE sa.[Receive_damage] SET  [status] = @status WHERE [receive_damage_id] = @receive_damage_id"
+
                 SelectCommandType="StoredProcedure">
-                <DeleteParameters>
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="db_name" Type="String" />
-                    <asp:Parameter Name="damage" Type="String" />
-                    <asp:Parameter Name="date_in" Type="DateTime" />
-                    <asp:Parameter Name="book_num" Type="String" />
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="pmcm_id" Type="Int32" />
-                </InsertParameters>
+              
                <SelectParameters>
-                    <asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />
+                    <%--<asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />--%>
                      <asp:Parameter Name="status" Type="string" DefaultValue="1" />
+                      <asp:ControlParameter ControlID="DropDownList3" Name="office_name" 
+                                            PropertyName="SelectedValue" />
                 </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </UpdateParameters>
+               
             </asp:SqlDataSource>
             </div>
 
@@ -121,13 +127,13 @@
           <div class="nav2">
                                   
                 <h3 align="center">
-                   งานที่มอบหมายจากผู้บริหารหน่วยงาน(รอผู้ปฎิบัติรับงาน)
+                   งานที่มอบหมายจากหัวหน้าแผนก(รอผู้ปฎิบัติรับงาน)
                 </h3>  </div>
       
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
                 DataSourceID="SqlDataSource1" EmptyDataText="No records found" OnRowCommand="GridView1_RowCommand"
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" 
-                BorderWidth="3px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id">
+                BorderWidth="3px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id" AllowPaging="True">
                 <Columns>
                     <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
                         ReadOnly="True" SortExpression="receive_damage_id" />--%>
@@ -149,20 +155,20 @@
 <%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
                         SortExpression="db_name">
 </asp:BoundField>--%>
-                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"/>
+                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False">
                    
                     
-                    <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
-                    <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
+                    <ItemStyle Width="8%" />
+                    </asp:BoundField>
+
+                    <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
+                    <ItemStyle Width="10%" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />
+                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง"  DataFormatString="{0:dd/MM/yyyy}"  SortExpression="date_recive" />
 
                     <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
                       <%--<asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="รับงาน" />--%>
@@ -180,29 +186,15 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                 SelectCommand="sa_receive_damage_region_issuse"
-                DeleteCommand="DELETE FROM sa.[Receive_damage] WHERE [receive_damage_id] = @receive_damage_id"
-                InsertCommand="INSERT INTO sa.[Receive_damage] ([db_name], [damage], [date_in], [book_num], [status], [pmcm_id]) VALUES (@db_name, @damage, @date_in, @book_num, @status, @pmcm_id)"
-                UpdateCommand="UPDATE sa.[Receive_damage] SET  [status] = @status WHERE [receive_damage_id] = @receive_damage_id"
                 SelectCommandType="StoredProcedure">
-                <DeleteParameters>
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="db_name" Type="String" />
-                    <asp:Parameter Name="damage" Type="String" />
-                    <asp:Parameter Name="date_in" Type="DateTime" />
-                    <asp:Parameter Name="book_num" Type="String" />
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="pmcm_id" Type="Int32" />
-                </InsertParameters>
+          
                <SelectParameters>
-                    <asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />
+                    <%--<asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />--%>
                     <asp:Parameter Name="status" Type="string" DefaultValue="2" />
+                   <asp:ControlParameter ControlID="DropDownList3" Name="office_name" 
+                                            PropertyName="SelectedValue" />
                 </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </UpdateParameters>
+
             </asp:SqlDataSource>
             </div>
       
@@ -215,7 +207,7 @@
              <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False"
                 DataSourceID="SqlDataSource2" EmptyDataText="No records found" 
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="None"
-                BorderWidth="1px" CellPadding="3" GridLines="Vertical" DataKeyNames="send_damage_id">
+                BorderWidth="1px" CellPadding="3" GridLines="Vertical" DataKeyNames="send_damage_id" AllowPaging="True">
                  <AlternatingRowStyle BackColor="#DCDCDC" />
                 <Columns>
                     <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
@@ -238,20 +230,20 @@
 <%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
                         SortExpression="db_name">
 </asp:BoundField>--%>
-                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"/>
+                                <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False">
                    
                     
-                    <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
-                    <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
+                    <ItemStyle Width="8%" />
+                    </asp:BoundField>
+
+                    <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
+                    <ItemStyle Width="10%" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />
+                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง"  DataFormatString="{0:dd/MM/yyyy}"  SortExpression="date_recive" />
 
                     <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
                 </Columns>
@@ -268,29 +260,15 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                 SelectCommand="sa_receive_damage_region_issuse" 
-                DeleteCommand="DELETE FROM sa.[Receive_damage] WHERE [receive_damage_id] = @receive_damage_id"
-                InsertCommand="INSERT INTO sa.[Receive_damage] ([db_name], [damage], [date_in], [book_num], [status], [pmcm_id]) VALUES (@db_name, @damage, @date_in, @book_num, @status, @pmcm_id)"
-                UpdateCommand="UPDATE sa.[Receive_damage] SET  [status] = @status WHERE [receive_damage_id] = @receive_damage_id"
-                SelectCommandType="StoredProcedure">
-                <DeleteParameters>
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="db_name" Type="String" />
-                    <asp:Parameter Name="damage" Type="String" />
-                    <asp:Parameter Name="date_in" Type="DateTime" />
-                    <asp:Parameter Name="book_num" Type="String" />
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="pmcm_id" Type="Int32" />
-                </InsertParameters>
+  SelectCommandType="StoredProcedure">
+              
                 <SelectParameters>
-                    <asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />
+                    <%--<asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />--%>
                      <asp:Parameter Name="status" Type="string" DefaultValue="3" />
+                    <asp:ControlParameter ControlID="DropDownList3" Name="office_name" 
+                                            PropertyName="SelectedValue" />
                 </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </UpdateParameters>
+              
             </asp:SqlDataSource>
 
        
@@ -309,7 +287,7 @@
              <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False"
                 DataSourceID="SqlDataSource3" EmptyDataText="No records found" 
                 Width="99%" AllowSorting="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None"
-                BorderWidth="1px" CellPadding="3" DataKeyNames="send_damage_id" CellSpacing="2">
+                BorderWidth="1px" CellPadding="3" DataKeyNames="send_damage_id" CellSpacing="2" AllowPaging="True">
                 <Columns>
                     <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
                         ReadOnly="True" SortExpression="receive_damage_id" />--%>
@@ -331,20 +309,20 @@
 <%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
                         SortExpression="db_name">
 </asp:BoundField>--%>
-                    <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"/>
+                                 <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False">
                    
                     
-                    <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
-                    <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
+                    <ItemStyle Width="8%" />
+                    </asp:BoundField>
+
+                    <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
+                    <ItemStyle Width="10%" />
+                    </asp:BoundField>
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />
+                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง"  DataFormatString="{0:dd/MM/yyyy}" SortExpression="date_recive" />
 
                     <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
                 </Columns>
@@ -361,29 +339,15 @@
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
                 SelectCommand="sa_receive_damage_region_issuse" 
-                DeleteCommand="DELETE FROM sa.[Receive_damage] WHERE [receive_damage_id] = @receive_damage_id"
-                InsertCommand="INSERT INTO sa.[Receive_damage] ([db_name], [damage], [date_in], [book_num], [status], [pmcm_id]) VALUES (@db_name, @damage, @date_in, @book_num, @status, @pmcm_id)"
-                UpdateCommand="UPDATE sa.[Receive_damage] SET  [status] = @status WHERE [receive_damage_id] = @receive_damage_id"
-                SelectCommandType="StoredProcedure">
-                <DeleteParameters>
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="db_name" Type="String" />
-                    <asp:Parameter Name="damage" Type="String" />
-                    <asp:Parameter Name="date_in" Type="DateTime" />
-                    <asp:Parameter Name="book_num" Type="String" />
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="pmcm_id" Type="Int32" />
-                </InsertParameters>
+ SelectCommandType="StoredProcedure">
+    
                <SelectParameters>
-                    <asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />
+                    <%--<asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />--%>
                    <asp:Parameter Name="status" Type="string" DefaultValue="4" />
+                   <asp:ControlParameter ControlID="DropDownList3" Name="office_name" 
+                                            PropertyName="SelectedValue" />
                 </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="status" Type="Boolean" />
-                    <asp:Parameter Name="receive_damage_id" Type="Int32" />
-                </UpdateParameters>
+
             </asp:SqlDataSource>
 
        

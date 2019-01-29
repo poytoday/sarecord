@@ -252,7 +252,7 @@
                 <h3 align="center">
                    รายละเอียดใบงานต่างๆ</h3> 
                  </div>
-                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No records found" CellPadding="3" Width="99%" AllowSorting="True" PageSize="30" 
+                                <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" EmptyDataText="No records found" CellPadding="3" Width="99%" AllowSorting="True" PageSize="20" 
                                     DataKeyNames="send_damage_id" AllowPaging="True" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
                                     <Columns>
                       

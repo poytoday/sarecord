@@ -63,4 +63,9 @@ Partial Class add_detail_property
     Protected Sub DD_Device_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DD_Device.SelectedIndexChanged
         Me.GridView1.DataBind()
     End Sub
+
+    Private Sub DD_Area_TextChanged(sender As Object, e As EventArgs) Handles DD_Area.TextChanged
+        Me.DD_Device.DataBind()
+        Me.GridView1.DataBind()
+    End Sub
 End Class
