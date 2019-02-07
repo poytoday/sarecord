@@ -4,65 +4,29 @@ Partial Class Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        'Dim aCookie As HttpCookie = New HttpCookie("UserInfo")
-        'Dim Login As New HttpCookie(“Login”)
-        'Dim LoginID As New HttpCookie(“LoginID”)
-
-        'Session("Login") = True
-        'Session("LoginID") = "495151"
-
-        'aCookie("Login") = Session("Login")
-        'aCookie("LoginID") = Session("LoginID")
-
-
-        'Login.Value = Session("Login")
-        'LoginID.Value = Session("LoginID")
-        'Response.Cookies.Add(Login)
-        'Response.Cookies.Add(LoginID)
-
-        'Dim Login_R As HttpCookie = Request.Cookies(“Login_R”)
-        'Dim LoginID_R As HttpCookie = Request.Cookies(“LoginID_R”)
-
-
-        'Session.Clear()
-        'UserClass.CheckLogin(Page)
-        'If Not func.CheckUserPermissions_access("all_device_admin.aspx", Session("User_access")) Then
-        '    Response.Write("<p>" + "You don't have permissions to access this page" + "<a href=""login.aspx"">&nbsp;" + "Back to login page" + "</a></p>")
-        '    Response.End()
-        'Else
-        '    Dim UserLogin As UserClass = CType(Session("User"), UserClass)
-        'End If
-
-        'UserClass.CheckLogin(Page)
-        'If Not func.CheckUserPermissions_access("all_device_admin.aspx", Session("User_access")) Then
-        '    Response.Write("<p>" + "You don't have permissions to access this page" + "<a href=""login.aspx"">&nbsp;" + "Back to login page" + "</a></p>")
-        '    Response.End()
-        'Else
-        '    Dim UserLogin As UserClass = CType(Session("User"), UserClass)
-        'End If
 
         lblMessage.Text = ""
 
         Try
             Dim session As HttpCookie = Request.Cookies("Login")
             Dim ck_id As HttpCookie = Request.Cookies("LoginID")
-            '
-            If session.Value = True And ck_id.Value <> "" Then
+            ''
+            'If session.Value = True And ck_id.Value <> "" Then
 
 
-                login_sa(ck_id.Value)
-                'login_sa(444678)
-                Response.Redirect(session("firstpage").ToString)
+            '    login_sa(ck_id.Value)
+            '    'login_sa(444678)
+            '    Response.Redirect(session("firstpage").ToString)
 
 
 
-            Else
-                Response.Redirect("http://smartdata.pea.co.th")
-            End If
+            'Else
+            '    Response.Redirect("http://smartdata.pea.co.th")
+            'End If
 
 
             'test Login
-            'login_sa(495151)
+            login_sa(495151)
 
 
             'Response.Redirect(session("firstpage").ToString)

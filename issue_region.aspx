@@ -94,8 +94,8 @@
                     </asp:BoundField>
                     <%--<asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />--%>
 
-                    <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
-                      <%--<asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="รับงาน" />--%>
+                    <%--<asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />--%>
+                     <asp:ButtonField CommandName="cmdDelete" HeaderImageUrl="~/images/icon_view.gif" Text="ลบงาน" />
                 </Columns>
                 <EmptyDataRowStyle HorizontalAlign="Center" />
                 <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
@@ -108,7 +108,7 @@
                 <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-                SelectCommand="sa_receive_damage_region_issuse"
+                SelectCommand="sa_receive_damage_region_status1"
 
                 SelectCommandType="StoredProcedure">
               
@@ -168,10 +168,10 @@
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง"  DataFormatString="{0:dd/MM/yyyy}"  SortExpression="date_recive" />
+                    <%--<asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง"  DataFormatString="{0:dd/MM/yyyy}"  SortExpression="date_recive" />--%>
 
-                    <asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />
-                      <%--<asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="รับงาน" />--%>
+                    <%--<asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />--%>
+                     
                 </Columns>
                 <EmptyDataRowStyle HorizontalAlign="Center" />
                 <FooterStyle BackColor="White" ForeColor="#333333" />

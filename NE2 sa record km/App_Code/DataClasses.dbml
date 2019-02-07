@@ -1,3 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Deviec_SA" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=172.30.203.155;Initial Catalog=SA_System;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Deviec_SA_V1ConnectionString" Provider="System.Data.SqlClient" />
-</Database>

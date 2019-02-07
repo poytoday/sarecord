@@ -288,12 +288,13 @@
                                         <asp:ListItem Value="4">4 ชม.</asp:ListItem>
                                         <asp:ListItem Value="5">5 ชม.</asp:ListItem>
                                          <asp:ListItem Value="6">6 ชม.</asp:ListItem>
-                                        <asp:ListItem Value="7">7 ชม.</asp:ListItem>
+                                        <asp:ListItem Value="7">7 ชม. (1 วัน) </asp:ListItem>
                                         <asp:ListItem Value="8">8 ชม.</asp:ListItem>
                                         <asp:ListItem Value="9">9 ชม.</asp:ListItem>
                                         <asp:ListItem Value="10">10 ชม.</asp:ListItem>
                                    
-                                        <asp:ListItem Value="99">&gt; 1 วัน</asp:ListItem>
+                                        <asp:ListItem Value="14"> 2 วัน</asp:ListItem>
+
                                     </asp:DropDownList>
                                 </td>
                             </tr>

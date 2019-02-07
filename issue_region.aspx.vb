@@ -34,7 +34,7 @@ Partial Class issue_region
 
             Dim index As Integer = Convert.ToInt32(e.CommandArgument)
             Dim dkKeys As DataKey
-            dkKeys = GridView1.DataKeys(index)
+            dkKeys = GridView4.DataKeys(index)
 
             Dim sKeysArg As String = ""
             For Each s As String In dkKeys.Values.Keys
@@ -43,7 +43,7 @@ Partial Class issue_region
             If sKeysArg = String.Empty Then
                 Exit Sub
             End If
-            If e.CommandName = "cmdView" Then
+            If e.CommandName = "cmdDelete" Then
                 'Dim sStartPageURL As String = ""
                 'sStartPageURL = "View_work_device.aspx?dbname=" & Convert.ToString(dkKeys(0))
                 'Response.Redirect(sStartPageURL)
@@ -55,14 +55,13 @@ Partial Class issue_region
                 Dim strConnString As String = "Server=172.30.203.155;Uid=sa;PASSWORD=1234;database=SA_System;Max Pool Size=400;Connect Timeout=600;"
                 objConn.ConnectionString = strConnString
                 objConn.Open()
-                strSQL = "UPDATE  sa.send_damage SET status = 2 WHERE " & sKeysArg
+                strSQL = "UPDATE  sa.send_damage SET status = 99 WHERE " & sKeysArg
                 '& Request.QueryString("pmcm_id")
                 objCmd = New SqlCommand(strSQL, objConn)
                 objCmd.ExecuteNonQuery()
-                Me.SqlDataSource1.DataBind()
-                Me.SqlDataSource2.DataBind()
-                Me.GridView1.DataBind()
-                Me.GridView2.DataBind()
+
+                Me.GridView4.DataBind()
+
 
 
             End If

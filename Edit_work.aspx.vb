@@ -283,6 +283,20 @@ Partial Class Edit_work
         '& Request.QueryString("pmcm_id")
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
+
+
+        If Me.RadioButtonList2.Text = "ใช้งานได้" Then
+            strSQL = "UPDATE  sa.send_damage SET status = 5  ,[pmcm_id] = " & Request.QueryString("pmcm_id") & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+
+
+        Else
+            strSQL = "UPDATE  sa.send_damage SET status = 4  ,[pmcm_id] = " & Request.QueryString("pmcm_id") & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+
+
+        End If
+        objCmd = New SqlCommand(strSQL, objConn)
+        objCmd.ExecuteNonQuery()
+
         Me.Label7.Text = "OK"
     End Sub
 
@@ -291,6 +305,10 @@ Partial Class Edit_work
         '& Request.QueryString("pmcm_id")
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
+
+
+
+
         Me.Label8.Text = "OK"
     End Sub
 

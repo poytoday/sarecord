@@ -71,7 +71,7 @@ Partial Class Edit_damage
     End Sub
 
     Protected Sub LinkButton2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LinkButton2.Click
-        strSQL = "UPDATE sa.Damage_List SET damage_id = " & Me.DropDownList1.SelectedValue & ",Cause = '" & Me.TextBox1.Text & "',Correction = '" & Me.TextBox2.Text & "' WHERE [id] = " & Request.QueryString("id_damage_list")
+        strSQL = "UPDATE sa.Damage_List SET damage_id = " & Me.DropDownList1.SelectedValue & ",Cause = '" & Me.TextBox1.Text & "',Correction = '" & Me.TextBox2.Text & "' WHERE [id] = " & Request.QueryString("id_damage")
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
         Dim sStartPageURL As String = ""

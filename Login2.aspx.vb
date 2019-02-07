@@ -4,7 +4,7 @@ Partial Class Login
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        ' Dim aCookie As HttpCookie = New HttpCookie("UserInfo")
+        'Dim aCookie As HttpCookie = New HttpCookie("UserInfo")
         'Dim Login As New HttpCookie(“Login”)
         'Dim LoginID As New HttpCookie(“LoginID”)
 
@@ -44,18 +44,35 @@ Partial Class Login
         lblMessage.Text = ""
 
         Try
-            If Request.Cookies(“Login_R”).Value = True Then
-                login_sa(Request.Cookies(“LoginID_R”).Value)
-                Redirect()
+            Dim session As HttpCookie = Request.Cookies("Login")
+            Dim ck_id As HttpCookie = Request.Cookies("LoginID")
+            ''
+            If session.Value = True And ck_id.Value <> "" Then
+
+
+                login_sa(ck_id.Value)
+                'login_sa(444678)
+                Response.Redirect(session("firstpage").ToString)
+
+
+
             Else
                 Response.Redirect("http://smartdata.pea.co.th")
             End If
 
+
+            'test Login
+            'login_sa(495151)
+
+
+            'Response.Redirect(session("firstpage").ToString)
+            'test Login
+
+
+
         Catch ex As Exception
-            Response.Redirect("http://smartdata.pea.co.th")
+            lblMessage.Text = ex.Message
         End Try
-
-
 
 
 
@@ -148,26 +165,37 @@ Partial Class Login
             Session("User") = Nothing
             'lblMessage.Text = "Invalid Login"
         End Try
+        Response.Redirect(userLogin.firstpage)
         If IsNothing(userLogin) Then
             Response.Redirect("regit.aspx")
         End If
 
     End Sub
     Protected Sub Redirect()
-        Dim sStartPageURL As String = ""
-        If Not IsNothing(Request.QueryString("url")) Then
-            sStartPageURL = Request.QueryString("url")
+        Try
 
-        Else
-            sStartPageURL = Session("firstpage")
-            ''
-        End If
+            Dim sStartPageURL As String = ""
+            If Not IsNothing(Request.QueryString("url")) Then
+                sStartPageURL = Request.QueryString("url")
 
-        If sStartPageURL = String.Empty Then
-            Response.Write("<script language=javascript>alert('" + "Start page isn't set" + "');</script>")
-        Else
-            Response.Redirect(sStartPageURL)
-        End If
+            Else
+                sStartPageURL = Session("firstpage")
+                ''
+            End If
+
+            If sStartPageURL = String.Empty Then
+                Response.Write("<script language=javascript>alert('" + "Start page isn't set" + "');</script>")
+            Else
+                'Response.Redirect("New_Main_login.aspx")
+                Response.Redirect("frist.aspx")
+                '  Response.End()
+            End If
+
+
+        Catch ex As Exception
+            lblMessage.Text = ex.Message
+        End Try
+
     End Sub
 
 End Class

@@ -107,7 +107,18 @@ Partial Class _Default
         strSQL = "UPDATE sa.Receive_damage SET status = 'True',pmcm_id = '" & Me.DropDownList4.Text & "' WHERE [receive_damage_id] = " & receive_damage_id
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
-        strSQL = "UPDATE  sa.send_damage SET status = 4  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+
+        If Me.RadioButtonList2.Text = "ใช้งานได้" Then
+            strSQL = "UPDATE  sa.send_damage SET status = 5  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+
+
+        Else
+            strSQL = "UPDATE  sa.send_damage SET status = 4  ,[pmcm_id] = " & Me.DropDownList4.Text & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
+
+
+        End If
+
+
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()
         objConn.Close()

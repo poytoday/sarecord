@@ -70,9 +70,6 @@
         .auto-style4 {
             width: 319px;
         }
-        .auto-style5 {
-            width: 461px;
-        }
         .auto-style6 {
             width: 265px;
             height: 36PX;
@@ -136,7 +133,7 @@
                                 <asp:Label ID="Label4" runat="server" Text="Label" ForeColor="Blue"></asp:Label>
                             </td>
                              <td class="auto-style6">
-                                 จำนวนวัน :
+                                 จำนวน ชม. :
                             </td>
                             <td class="auto-style9">
                                 <asp:Label ID="Label6" runat="server" Text="Label" ForeColor="Blue"></asp:Label>

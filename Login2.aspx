@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Login.aspx.vb" Inherits="Login" %>
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Login2.aspx.vb" Inherits="Login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register TagPrefix="poy" TagName="header" Src="~/header.ascx" %>
@@ -25,6 +25,7 @@
         {
             width: 915px;
         }
+        .errormsg {}
     </style>
 </head>
 <body>
@@ -49,7 +50,7 @@
                                             <strong><span style="font-size: 13pt">Login &nbsp; </span></strong>
                                             <img src="images/users.gif" />&nbsp;</td>
                                     </tr>--%>
-                                <tr>
+                               <%-- <tr>
                                     <td valign="top" align="right" style="width: 83px">
                                         Username:&nbsp;
                                     </td>
@@ -58,8 +59,8 @@
                                         <asp:RequiredFieldValidator ID="rfvUserName" runat="server" ErrorMessage="Username can not be empty."
                                             ControlToValidate="txtUserName" Display="Dynamic" Width="208px" ForeColor="Red"></asp:RequiredFieldValidator>
                                     </td>
-                                </tr>
-                                <tr>
+                                </tr>--%>
+                               <%-- <tr>
                                     <td valign="top" align="right" style="width: 83px">
                                         Password:&nbsp;
                                     </td>
@@ -75,7 +76,7 @@
                                         <asp:CheckBox ID="chbSavePassword" runat="server" TextAlign="Left" CssClass="checkbox"
                                             Text="Remember Password" Width="232px" Checked="True"></asp:CheckBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                               <%--  <tr>
                                     <td align="center" colspan="2" style="height: 20px">
                                         &nbsp;
@@ -85,7 +86,7 @@
                                 </tr>--%>
                             </table>
                             <p>
-                                &nbsp;<asp:Label ID="lblMessage" runat="server" CssClass="errormsg" ForeColor="Red"></asp:Label></p>
+                                &nbsp;</p>
                             <p>
                                 &nbsp;&nbsp;&nbsp;</p>
                             <p>
@@ -93,7 +94,9 @@
                             </p>
                             <p>
                                 &nbsp;<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Forget_pass.aspx"
-                                    Width="254px" Height="27px">&#3621;&#3639;&#3617;&#3619;&#3627;&#3633;&#3626;&#3612;&#3656;&#3634;&#3609;</asp:HyperLink>&nbsp;
+                                    Width="254px" Height="27px">&#3621;&#3639;&#3617;&#3619;&#3627;&#3633;&#3626;&#3612;&#3656;&#3634;&#3609;</asp:HyperLink>
+                                <asp:Label ID="lblMessage" runat="server" CssClass="errormsg" ForeColor="Red" Width="320px"></asp:Label>
+                                &nbsp;
                             </p>
                         </asp:Panel>
                 </tr>

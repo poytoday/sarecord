@@ -68,7 +68,7 @@ Partial Class me_pmce_list_detail
             Me.Label2.Text = dt.Rows(0)("op_id").ToString
             Me.Label4.Text = dt.Rows(0)("operation")
             Me.Label5.Text = dt.Rows(0)("date_operate").ToString
-            Me.Label6.Text = dt.Rows(0)("date_num").ToString & " วัน"
+            Me.Label6.Text = dt.Rows(0)("date_num").ToString & " ชม."
             Me.Label7.Text = dt.Rows(0)("status_work").ToString
             If dt.Rows(0)("status_work").ToString <> "ใช้งานได้" Then
                 Me.Label7.ForeColor = Drawing.Color.Red
