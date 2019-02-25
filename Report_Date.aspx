@@ -305,7 +305,7 @@
                             DataKeyNames="pmcm_id">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
-                                <%--<asp:BoundField DataField="sap_id" HeaderText="sap_id" SortExpression="sap_id"></asp:BoundField>--%>
+                                <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name"></asp:BoundField>
                                 <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id">
                                     <ItemStyle HorizontalAlign="Center" Width="10%" />
                                 </asp:BoundField>

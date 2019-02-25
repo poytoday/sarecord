@@ -41,7 +41,9 @@ Partial Class receive_damage2
             Dr("operation_recive") = Me.TextBox2.Text
             Dr("office_name") = Session("UserOffice")
             Dr("status") = False
-
+            'Dr("id_type_frtu") = Me.DD_Type_Device.SelectedValue
+            Dr("id_type_frtu") = Me.RadioButtonList1.SelectedValue
+            Dr("db_name") = Me.DD_Device.SelectedValue.ToString
             Dt.Rows.Add(Dr)
             Dim cdb As New SqlCommandBuilder(Adpt)
             Adpt.Update(Ds, "Receive_damage")

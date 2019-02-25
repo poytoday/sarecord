@@ -131,4 +131,5 @@ Partial Class Device
             Me.DropDownList2.Visible = True
         End If
     End Sub
+
 End Class

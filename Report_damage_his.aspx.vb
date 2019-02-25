@@ -83,18 +83,12 @@ Partial Class Report_damage_his
     End Sub
 
     Protected Sub RadioButtonList2_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles RadioButtonList2.TextChanged
-        Me.GridView1.Visible = False
-        Me.GridView2.Visible = False
-        Me.GridView4.Visible = False
-        Me.Label1.Visible = False
-        Me.Label2.Visible = False
-        Me.Label3.Visible = False
-        Me.Label4.Visible = True
+
     End Sub
 
     Protected Sub RadioButtonList1_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles RadioButtonList1.TextChanged
+        Me.GridView1.DataBind()
         Me.GridView1.Visible = True
-        Me.Label1.Visible = True
     End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -120,4 +114,33 @@ Partial Class Report_damage_his
         'Else
         'End If
     End Sub
+
+    Private Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
+        dis_detail()
+    End Sub
+
+    Function show_detail()
+
+        Me.GridView2.Visible = True
+        Me.GridView4.Visible = True
+        Me.Label2.Visible = True
+        Me.Label3.Visible = True
+        Return 0
+    End Function
+    Function dis_detail()
+
+        Me.GridView3.DataBind()
+        Me.GridView5.DataBind()
+        Me.GridView2.DataBind()
+        Me.GridView4.DataBind()
+
+        Me.GridView3.Visible = True
+        Me.GridView5.Visible = True
+        Me.GridView2.Visible = True
+        Me.GridView4.Visible = True
+        Me.Label1.Visible = True
+        Me.Label5.Visible = True
+        Me.Label6.Visible = True
+        Return 0
+    End Function
 End Class

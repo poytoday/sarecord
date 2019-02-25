@@ -68,9 +68,10 @@ Partial Class report_damage_his_date
 
         'Response.Redirect("Edit_Bu.aspx?" + sKeysArg)
         'End If
+
         If e.CommandName = "cmdEdit" Then
             Dim sStartPageURL As String = ""
-            sStartPageURL = "Edit_work.aspx?pmcm_id=" & Convert.ToString(dkKeys(0))
+            sStartPageURL = "Edit_work.aspx?pmcm_id=" & Convert.ToString(dkKeys(0)) & "&id_team=" & Convert.ToString(dkKeys(1))
             Response.Redirect(sStartPageURL)
         End If
         'If e.CommandName = "cmdView" Then
@@ -132,5 +133,24 @@ Partial Class report_damage_his_date
         Label8.Text = DD_after_y.SelectedValue & "-" & DD_after_m.SelectedValue & "-" & DD_after_d.SelectedValue & "  00:00:00"
         Me.SqlDataSource1.DataBind()
         Me.GridView1.DataBind()
+    End Sub
+    Function dis_detail()
+
+        Me.GridView3.DataBind()
+        Me.GridView5.DataBind()
+        Me.GridView2.DataBind()
+        Me.GridView4.DataBind()
+
+        Me.GridView3.Visible = True
+        Me.GridView5.Visible = True
+        Me.GridView2.Visible = True
+        Me.GridView4.Visible = True
+        Me.Label1.Visible = True
+        Me.Label5.Visible = True
+        Me.Label6.Visible = True
+        Return 0
+    End Function
+    Private Sub GridView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridView1.SelectedIndexChanged
+        dis_detail()
     End Sub
 End Class

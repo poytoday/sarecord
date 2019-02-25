@@ -25,19 +25,23 @@ Partial Class Edit_work
         objCmd.Parameters.Add("@pmcm_id", SqlDbType.Int).Value = Request.QueryString("pmcm_id")
         dtAdapter.Fill(dt)
         If dt.Rows.Count > 0 Then
-            Me.Label2.Text = dt.Rows(0)("op_id").ToString
-            Try
-                Me.DD_operation.Text = dt.Rows(0)("operation")
-            Catch ex As Exception
-                Label4.Text = "การปฎิบัติงานไม่มีใน Cattalog กรุณาแก้ไข"
-            End Try
 
+            Me.Label2.Text = dt.Rows(0)("op_id").ToString
             Me.TextBox2.Text = dt.Rows(0)("date_operate")
             Me.DropDownList3.Text = dt.Rows(0)("date_num").ToString
             Me.RadioButtonList2.SelectedValue = dt.Rows(0)("status_work")
-            Me.TextBox1.Text = dt.Rows(0)("remark")
+            Me.TextBox1.Text = dt.Rows(0)("remark").ToString
             Me.TextBox3.Text = dt.Rows(0)("sap_id").ToString
             type_frtu = dt.Rows(0)("id_type_frtu")
+
+            Try
+                Me.DD_operation.Text = dt.Rows(0)("operation").ToString
+            Catch ex As Exception
+                Label4.Text = "การปฎิบัติงานไม่มี กรุณาแก้ไข #" + dt.Rows(0)("operation").ToString
+
+            Finally
+                Me.DD_operation.DataBind()
+            End Try
         End If
         DataBind_gridview1()
         DataBind_gridview2()
@@ -286,22 +290,22 @@ Partial Class Edit_work
 
 
         If Me.RadioButtonList2.Text = "ใช้งานได้" Then
-            strSQL = "UPDATE  sa.send_damage SET status = 5  ,[pmcm_id] = " & Request.QueryString("pmcm_id") & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
-
+            strSQL = "UPDATE  sa.send_damage SET status = 5 WHERE [pmcm_id] = " & Request.QueryString("pmcm_id")
+            objCmd = New SqlCommand(strSQL, objConn)
+            objCmd.ExecuteNonQuery()
 
         Else
-            strSQL = "UPDATE  sa.send_damage SET status = 4  ,[pmcm_id] = " & Request.QueryString("pmcm_id") & "  WHERE send_damage_id = " & Me.GridView2.SelectedValue.ToString
-
+            strSQL = "UPDATE  sa.send_damage Set status = 4  WHERE [pmcm_id] = " & Request.QueryString("pmcm_id")
+            objCmd = New SqlCommand(strSQL, objConn)
+            objCmd.ExecuteNonQuery()
 
         End If
-        objCmd = New SqlCommand(strSQL, objConn)
-        objCmd.ExecuteNonQuery()
 
         Me.Label7.Text = "OK"
     End Sub
 
     Protected Sub LinkButton6_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles LinkButton6.Click
-        strSQL = "UPDATE sa.pmcm_record SET remark = '" & Me.TextBox1.Text & "' WHERE [pmcm_id] = " & Request.QueryString("pmcm_id")
+        strSQL = "UPDATE sa.pmcm_record Set remark = '" & Me.TextBox1.Text & "' WHERE [pmcm_id] = " & Request.QueryString("pmcm_id")
         '& Request.QueryString("pmcm_id")
         objCmd = New SqlCommand(strSQL, objConn)
         objCmd.ExecuteNonQuery()

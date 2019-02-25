@@ -136,8 +136,9 @@
                         ReadOnly="True" SortExpression="id" >
                     <ItemStyle Width="15%" />
                     </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="dbname" HeaderText="DB Name" SortExpression="dbname" />--%>
+                   
                     <asp:BoundField DataField="detail" HeaderText="รายละเอียด" SortExpression="detail" />
+                     <asp:BoundField DataField="dbname" HeaderText="ลำดับ" SortExpression="dbname" />
                     <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id" />
                     <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location" />
                     <%--<asp:BoundField DataField="product" HeaderText="ผลิตภัณฑ์" 

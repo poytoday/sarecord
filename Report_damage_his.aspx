@@ -107,6 +107,7 @@
                                 </div>
                             </td>
                         </tr>
+                       
                         <tr>
                             <td>
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1"
@@ -144,6 +145,97 @@
                             </td>
                         </tr>
                         <tr>
+                                <td>
+                                    <div class="header">
+                                        <div class="nav2">
+                                            <h3 align="center">
+                                                <asp:Label ID="Label5" runat="server" ForeColor="#3366FF" Visible="False">อุปกรณ์ที่ชำรุด</asp:Label>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </td>
+                        <tr>
+                            <td>
+                                <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource6" EmptyDataText="No records found" ForeColor="#333333" GridLines="None" OnRowCommand="GridView2_RowCommand" PageSize="5" Visible="False" Width="99%">
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                    <Columns>
+                                        <%--<asp:BoundField DataField="damage_name" HeaderText="damage_name" 
+                    SortExpression="damage_name" />--%><%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" ReadOnly="True" 
+                    SortExpression="pmcm_id" />--%><%--<asp:BoundField DataField="status_work" HeaderText="status_work" 
+                    SortExpression="status_work" />--%><%--<asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />--%><%--<asp:BoundField DataField="date_receive" HeaderText="date_receive" 
+                    SortExpression="date_receive" />--%><%--<asp:BoundField DataField="date_finish" HeaderText="date_finish" 
+                    SortExpression="date_finish" />--%><%--<asp:BoundField DataField="type_frtu" HeaderText="type_frtu" 
+                    SortExpression="type_frtu" />--%><%--<asp:BoundField DataField="date_update" HeaderText="date_update" 
+                    SortExpression="date_update" />--%><%--<asp:BoundField DataField="date_num" HeaderText="จำนวนวันที่ดำเนินการ(วัน)" SortExpression="date_num">
+                                    <ItemStyle HorizontalAlign="Center" />
+                                </asp:BoundField>--%><%--<asp:BoundField DataField="damage_id" HeaderText="damage_id" 
+                    SortExpression="damage_id" />--%>
+                                        <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id">
+                                        <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="office" HeaderText="พื้นที่" SortExpression="office" />
+                                        <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location" />
+                                        <asp:BoundField DataField="count_1" HeaderText="จำนวนครั้งที่ชำรุด(ตัว)" SortExpression="count_1">
+                                        <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" Visible="False" />
+                                        <asp:BoundField DataField="damage_id" HeaderText="damage_id" SortExpression="damage_id" Visible="False" />
+                                    </Columns>
+                                    <EditRowStyle BackColor="#999999" />
+                                    <EmptyDataRowStyle HorizontalAlign="Center" />
+                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                                </asp:GridView>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="header">
+                                    <div class="nav2">
+                                        <h3 align="center">
+                                            <asp:Label ID="Label6" runat="server" ForeColor="#3366FF" Visible="False">สาเหตุและการแก้ไขอาการชำรุด</asp:Label>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <asp:GridView ID="GridView5" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataSourceID="SqlDataSource7" EmptyDataText="No records found" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Visible="False" Width="99%">
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <Columns>
+                                        <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id">
+                                        <ItemStyle HorizontalAlign="Center" />
+                                        </asp:BoundField>
+                                        <asp:BoundField DataField="Cause" HeaderText="สาเหตุ" SortExpression="Cause" />
+                                        <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
+                                        <asp:BoundField DataField="Correction" HeaderText="การแก้ไข" SortExpression="Correction" />
+                                        <asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" Visible="False" />
+                                        <asp:BoundField DataField="damage_id" HeaderText="damage_id" SortExpression="damage_id" Visible="False" />
+                                        <asp:BoundField DataField="db_name" HeaderText="db_name" SortExpression="db_name" Visible="False" />
+                                    </Columns>
+                                    <EditRowStyle BackColor="#2461BF" />
+                                    <EmptyDataRowStyle HorizontalAlign="Center" />
+                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                    <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                                    <RowStyle BackColor="#EFF3FB" />
+                                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                </asp:GridView>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <div class="header">
                                     <div class="nav2">
@@ -156,43 +248,30 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="pmcm_id"
-                                    DataSourceID="SqlDataSource3" Visible="False" EmptyDataText="No records found"
-                                    OnRowCommand="GridView2_RowCommand" CellPadding="4" ForeColor="#333333" GridLines="None"
-                                    Width="99%" AllowPaging="True" AllowSorting="True" PageSize="5">
+                                <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="pmcm_id" DataSourceID="SqlDataSource3" EmptyDataText="No records found" ForeColor="#333333" GridLines="None" OnRowCommand="GridView2_RowCommand" PageSize="5" Visible="False" Width="99%">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
                                         <%--<asp:BoundField DataField="damage_name" HeaderText="damage_name" 
-                    SortExpression="damage_name" />--%>
-                                        <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" ReadOnly="True" 
-                    SortExpression="pmcm_id" />--%>
-                                        <%--<asp:BoundField DataField="status_work" HeaderText="status_work" 
-                    SortExpression="status_work" />--%>
-                                        <%--<asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />--%>
-                                        <%--<asp:BoundField DataField="date_receive" HeaderText="date_receive" 
-                    SortExpression="date_receive" />--%>
-                                        <%--<asp:BoundField DataField="date_finish" HeaderText="date_finish" 
-                    SortExpression="date_finish" />--%>
-                                        <%--<asp:BoundField DataField="type_frtu" HeaderText="type_frtu" 
-                    SortExpression="type_frtu" />--%>
-                                        <%--<asp:BoundField DataField="date_update" HeaderText="date_update" 
-                    SortExpression="date_update" />--%>
-                                        <%--<asp:BoundField DataField="date_num" HeaderText="จำนวนวันที่ดำเนินการ(วัน)" SortExpression="date_num">
+                    SortExpression="damage_name" />--%><%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" ReadOnly="True" 
+                    SortExpression="pmcm_id" />--%><%--<asp:BoundField DataField="status_work" HeaderText="status_work" 
+                    SortExpression="status_work" />--%><%--<asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />--%><%--<asp:BoundField DataField="date_receive" HeaderText="date_receive" 
+                    SortExpression="date_receive" />--%><%--<asp:BoundField DataField="date_finish" HeaderText="date_finish" 
+                    SortExpression="date_finish" />--%><%--<asp:BoundField DataField="type_frtu" HeaderText="type_frtu" 
+                    SortExpression="type_frtu" />--%><%--<asp:BoundField DataField="date_update" HeaderText="date_update" 
+                    SortExpression="date_update" />--%><%--<asp:BoundField DataField="date_num" HeaderText="จำนวนวันที่ดำเนินการ(วัน)" SortExpression="date_num">
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:BoundField>--%>
-                                        <%--<asp:BoundField DataField="damage_id" HeaderText="damage_id" 
+                                </asp:BoundField>--%><%--<asp:BoundField DataField="damage_id" HeaderText="damage_id" 
                     SortExpression="damage_id" />--%>
                                         <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
-                                        <asp:BoundField DataField="date_operate" HeaderText="วันที่ดำเนินการ" SortExpression="date_operate"
-                                            DataFormatString="{0:dd/MMM/yyyy}" HtmlEncode="False">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="date_operate" DataFormatString="{0:dd/MMM/yyyy}" HeaderText="วันที่ดำเนินการ" HtmlEncode="False" SortExpression="date_operate">
+                                        <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="operation" HeaderText="การปฎิบัติงาน" SortExpression="operation" />
                                         <asp:BoundField DataField="remark" HeaderText="หมายเหตุ" SortExpression="remark" />
                                         <%--<asp:ButtonField CommandName="cmd_name" HeaderImageUrl="~/images/icon_view.gif" Text="Names" />--%>
-                                        <asp:CommandField SelectText="Names" ShowSelectButton="True" HeaderImageUrl="~/images/icon_view.gif" />
+                                        <asp:CommandField HeaderImageUrl="~/images/icon_view.gif" SelectText="Names" ShowSelectButton="True" />
                                     </Columns>
                                     <EditRowStyle BackColor="#999999" />
                                     <EmptyDataRowStyle HorizontalAlign="Center" />
@@ -217,23 +296,22 @@
                                         </h3>
                                     </div>
                                 </div>
+                            </td>
                         </tr>
                         <tr>
                             <td align="center" class="style2">
-                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" DataKeyNames="Emp_ID"
-                                    DataSourceID="SqlDataSource4" Visible="False" CellPadding="4" ForeColor="#333333"
-                                    GridLines="None" Width="99%" EmptyDataText="No records found" HorizontalAlign="Center">
+                                <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Emp_ID" DataSourceID="SqlDataSource4" EmptyDataText="No records found" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" Visible="False" Width="99%">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
                                         <asp:BoundField DataField="Names" HeaderText="ผู้ดำเนินการ" SortExpression="Names">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="Position" HeaderText="ตำแหน่ง" SortExpression="Position">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                         <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
                                         <asp:BoundField DataField="Emp_ID" HeaderText="รหัสประจำตัว" ReadOnly="True" SortExpression="Emp_ID">
-                                            <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Center" />
                                         </asp:BoundField>
                                     </Columns>
                                     <EditRowStyle BackColor="#2461BF" />
@@ -278,6 +356,20 @@
                         <SelectParameters>
                             <asp:ControlParameter ControlID="GridView2" Name="P_pmcm_id" 
                                 PropertyName="SelectedValue" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                        SelectCommand="sa_report_damage_km1" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="GridView1" Name="P_damage_id" 
+                                PropertyName="SelectedValue" Type="String" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                     <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                        SelectCommand="sa_report_damage_km2" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="GridView1" DefaultValue="" Name="P_damage_id" 
+                                PropertyName="SelectedValue" Type="Int32" />
                         </SelectParameters>
                     </asp:SqlDataSource>
                 </h3>

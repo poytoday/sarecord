@@ -55,7 +55,7 @@
                     <table width="99%">
                         <tr>
                             <td class="style10">
-                                Team
+                                ทีมงาน
                             </td>
                             <td>
                                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1"
@@ -94,16 +94,24 @@
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
                         AutoGenerateColumns="False" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None"
                         BorderWidth="1px" CellPadding="4" DataKeyNames="pmcm_id" DataSourceID="SqlDataSource3"
-                        ForeColor="Black" GridLines="Vertical" PageSize="20" Width="99%" 
+                        ForeColor="Black" GridLines="Vertical" PageSize="40" Width="99%" 
                         EmptyDataText="No Reccord">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <%--<asp:BoundField DataField="db_name" HeaderText="DBName" 
+                            <asp:BoundField DataField="db_name" HeaderText="ลำดับ" 
                                 SortExpression="db_name" >
                             <ItemStyle Width="10%" />
-                            </asp:BoundField>--%>
+                            </asp:BoundField>
                             <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" 
                                 SortExpression="op_id" >
+                            <ItemStyle Width="12%" HorizontalAlign="Center" />
+                            </asp:BoundField>
+                                       <asp:BoundField DataField="location" HeaderText="สถานที่" 
+                                SortExpression="location" >
+                            <ItemStyle Width="12%" HorizontalAlign="Center" />
+                            </asp:BoundField>
+                                       <asp:BoundField DataField="office" HeaderText="พื้นที่" 
+                                SortExpression="office" >
                             <ItemStyle Width="12%" HorizontalAlign="Center" />
                             </asp:BoundField>
                             <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" ReadOnly="True" 
@@ -114,7 +122,7 @@
                             </asp:BoundField>
                             <asp:BoundField DataField="operation" HeaderText="การปฏิบัติงาน" 
                                 SortExpression="operation" >
-                            <ItemStyle Width="25%" />
+                            <ItemStyle Width="15%" />
                             </asp:BoundField>
                             <asp:BoundField DataField="status_work" HeaderText="สถานะงาน" 
                                 SortExpression="status_work" >

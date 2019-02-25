@@ -208,7 +208,7 @@
                 </tr>
             </table>
             <asp:GridView ID="GridView2" runat="server" AllowSorting="True" AutoGenerateColumns="False"
-                DataKeyNames="dbname" DataSourceID="SqlDataSource6" PageSize="20" 
+                DataKeyNames="dbname" DataSourceID="SqlDataSource6"  
                 Width="99%" CellPadding="4" ForeColor="#333333" GridLines="None" 
                 Visible="False">
                 <AlternatingRowStyle BackColor="White" />

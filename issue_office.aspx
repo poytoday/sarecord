@@ -1,5 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="issue_region.aspx.vb" Inherits="issue_region" %>
-
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="issue_office.aspx.vb" Inherits="issue_office" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register TagPrefix="poy" TagName="header" Src="~/header3.ascx" %>
@@ -33,7 +32,7 @@
                    <table width="99%">
                         <tr>
                             <td align="right" bgcolor="White">
-                                เลือกแผนก ปลายทาง:
+                                เลือกแผนกที่เป็นผู้แจ้ง(ต้นทาง):
                             </td>
                             <td>
                                    <asp:DropDownList ID="DropDownList3" runat="server" DataSourceID="SqlDataSource5"
@@ -51,7 +50,7 @@
                        </table>
             <div class="nav2">
                 <h3 align="center">
-                   งานทีแจ้งอาการชำรุด(รอแผนกรับงาน Status 1)
+                   งานทีแจ้งอาการชำรุด(รอแผนกรับงาน status1)
                 </h3>  </div>
       
             <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False"
@@ -85,9 +84,10 @@
                     <%--<asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />--%>
                     <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
                     <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
+                   
                     <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
                      <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" />
+                     <asp:BoundField DataField="office_name" HeaderText="แจ้งไปยังแผนก" SortExpression="office_name" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
@@ -108,7 +108,7 @@
                 <SortedDescendingHeaderStyle BackColor="#242121" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-                SelectCommand="sa_receive_damage_region_status1"
+                SelectCommand="sa_receive_damage_office_status1"
 
                 SelectCommandType="StoredProcedure">
               
@@ -127,7 +127,7 @@
           <div class="nav2">
                                   
                 <h3 align="center">
-                   งานที่มอบหมายจากหัวหน้าแผนก(รอผู้ปฎิบัติรับงาน Status 2)
+                   งานที่มอบหมายจากหัวหน้าแผนก(รอผู้ปฎิบัติรับงาน status2)
                 </h3>  </div>
       
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False"
@@ -160,11 +160,11 @@
                     
                     <ItemStyle Width="8%" />
                     </asp:BoundField>
-
+                      
                     <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
-                      <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
+                       <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
                          <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id" >
@@ -178,6 +178,7 @@
                     <ItemStyle Width="10%" />
 
                     </asp:BoundField>
+                      <asp:BoundField DataField="office_name" HeaderText="แจ้งไปยังแผนก" SortExpression="office_name" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
@@ -199,7 +200,7 @@
                 <SortedDescendingHeaderStyle BackColor="#275353" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-                SelectCommand="sa_receive_damage_region_issuse"
+                SelectCommand="sa_receive_damage_office_issuse"
                 SelectCommandType="StoredProcedure">
           
                <SelectParameters>
@@ -253,7 +254,7 @@
                     <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
-                      <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
+                       <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
                          <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id" >
@@ -267,6 +268,7 @@
                     <ItemStyle Width="10%" />
 
                     </asp:BoundField>
+                      <asp:BoundField DataField="office_name" HeaderText="แจ้งไปยังแผนก" SortExpression="office_name" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
@@ -287,7 +289,7 @@
                 <SortedDescendingHeaderStyle BackColor="#000065" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-                SelectCommand="sa_receive_damage_region_issuse" 
+                SelectCommand="sa_receive_damage_office_issuse" 
   SelectCommandType="StoredProcedure">
               
                 <SelectParameters>
@@ -346,7 +348,7 @@
                     <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
-                      <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
+                       <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name" >
                     <ItemStyle Width="10%" />
                     </asp:BoundField>
                          <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id" >
@@ -360,6 +362,7 @@
                     <ItemStyle Width="10%" />
 
                     </asp:BoundField>
+                      <asp:BoundField DataField="office_name" HeaderText="แจ้งไปยังแผนก" SortExpression="office_name" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
@@ -380,7 +383,7 @@
                 <SortedDescendingHeaderStyle BackColor="#93451F" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
-                SelectCommand="sa_receive_damage_region_issuse" 
+                SelectCommand="sa_receive_damage_office_issuse" 
  SelectCommandType="StoredProcedure">
     
                <SelectParameters>

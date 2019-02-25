@@ -203,7 +203,57 @@
                         <asp:TextBox ID="TextBox3" runat="server" Height="28px" Width="407px"></asp:TextBox>
                     </td>
                 </tr>--%>
-             
+         <%--        <tr>
+                                <td>ประเภทอุปกรณ์
+                                </td>
+                                <td class="style15">
+                                    <asp:DropDownList ID="DD_Type_Device" runat="server" AutoPostBack="True" DataSourceID="DS_Type_Device"
+                                        DataTextField="type_frtu" DataValueField="ID" Width="309px" Height="31px">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="DD_Type_Device"
+                                        ErrorMessage="เลือกประเภทอุปกรณ์" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>--%>
+                 <tr>
+                    <td class="style5">
+                        &nbsp;<asp:Label ID="Label1" runat="server" Text="ประเภทอุปกรณ์ :" Visible="True"></asp:Label>
+                    </td>
+                    <td>
+                        <asp:RadioButtonList ID="RadioButtonList1" runat="server" DataSourceID="SqlDataSource4"
+                            DataTextField="type_frtu" DataValueField="ID" AutoPostBack="True" RepeatDirection="Horizontal"
+                            RepeatColumns="3" Height="28px" Width="99%" Visible="True">
+                        </asp:RadioButtonList>
+                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                            SelectCommand="sa_select_type_frtu" SelectCommandType="StoredProcedure">
+                                   <SelectParameters>
+                    <asp:SessionParameter Name="ID_Team" SessionField="User_id_team" Type="Int32" />
+                    <asp:SessionParameter Name="office" SessionField="UserOffice" />
+                </SelectParameters>
+                        </asp:SqlDataSource>
+                    </td>
+                </tr>
+                            <tr>
+                                <td>พื้นที่
+                                </td>
+                                <td class="style7">
+                                    <asp:DropDownList ID="DD_Area" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3"
+                                        DataTextField="office" DataValueField="office" Width="310px" Height="31px">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DD_Area"
+                                        ErrorMessage="เลือกพื้นที่" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>รหัสอุปกรณ์
+                                </td>
+                                <td class="style9">
+                                    <asp:DropDownList ID="DD_Device" runat="server" AutoPostBack="True" DataSourceID="DS_Device"
+                                        DataTextField="opid_location" DataValueField="dbname" Height="31px" Width="310px">
+                                    </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="DD_Device"
+                                        ErrorMessage="เลือกรหัสอุปกรณ์" ForeColor="Red" ValidationGroup="A"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
                 <tr>
                     <td class="style7">
                         ผู้ดำเนินการ
@@ -260,8 +310,8 @@
                                         </asp:BoundField>--%>
                                          <%--<asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id" />--%>
                                         <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" InsertVisible="False" ReadOnly="True" SortExpression="send_damage_id" />--%>
-                                         <%--<asp:BoundField DataField="db_name" HeaderText="db_name" SortExpression="db_name">
-                                        </asp:BoundField>--%>
+                                         <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name">
+                                        </asp:BoundField>
                                          <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in"  DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"  />
                                         <asp:BoundField DataField="name" HeaderText="ผู้รับผิดชอบ" SortExpression="name" />
                                         <%--<asp:BoundField DataField="position" HeaderText="position" SortExpression="position" />--%>
@@ -298,6 +348,29 @@
                                         <asp:SessionParameter Name="office" SessionField="UserOffice" />
                                     </SelectParameters>
         </asp:SqlDataSource>
+            <asp:SqlDataSource ID="DS_Device" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                SelectCommand="sa_select_op_id" SelectCommandType="StoredProcedure">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="DD_Area" Name="P_area" PropertyName="SelectedValue"
+                        Type="String" DefaultValue="" />
+                    <asp:ControlParameter ControlID="RadioButtonList1" Name="P_id_type" PropertyName="SelectedValue"
+                        Type="Int32" DefaultValue="36" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="DS_Type_Device" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                SelectCommand="sa_select_type_frtu" SelectCommandType="StoredProcedure">
+                <SelectParameters>
+                    <asp:SessionParameter Name="ID_Team" SessionField="User_id_team" Type="Int32" />
+                    <asp:SessionParameter Name="office" SessionField="UserOffice" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+                SelectCommand="sa_select_area" SelectCommandType="StoredProcedure">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="RadioButtonList1" Name="P_id_type" PropertyName="SelectedValue"
+                        Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         <poy:tail ID="tail1" runat="server" />
     </div>
 

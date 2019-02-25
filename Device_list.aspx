@@ -109,26 +109,28 @@
                             DataTextField="office" DataValueField="office" AutoPostBack="True" Height="20px"
                             Width="155px" Visible="False">
                         </asp:DropDownList>
+                            <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" 
+                                Text="แสดงอุปกรณ์ทั้งหมด" Visible="False" />
                         <br />
                     </td>
                 </tr>
             </table>
             <br />
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True"
-                AutoGenerateColumns="False" DataKeyNames="dbname" DataSourceID="SqlDataSource2"
-                EmptyDataText="No records found" OnRowCommand="GridView1_RowCommand" PageSize="20"
-                CellPadding="4" ForeColor="#333333" GridLines="None" Width="99%" Visible="False">
-                <AlternatingRowStyle BackColor="White" />
+          <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="dbname"
+                DataSourceID="SqlDataSource6" EmptyDataText="No records found" OnRowCommand="GridView2_RowCommand"
+                PageSize="20" CellPadding="4" Width="99%"
+                BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px"
+                Visible="False">
                 <Columns>
-                    <asp:BoundField DataField="dbname" HeaderText="dbname" ReadOnly="True" SortExpression="dbname" />
+                    <asp:BoundField DataField="dbname" HeaderText="ลำดับ" ReadOnly="True" SortExpression="dbname" />
                     <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" ReadOnly="True" SortExpression="op_id">
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location" />
-                    <%--<asp:BoundField DataField="product" HeaderText="ผลิตภัณฑ์" 
-                            SortExpression="product">
+               <asp:BoundField DataField="office" HeaderText="พื้นที่" 
+                            SortExpression="office">
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>--%>
+                        </asp:BoundField>
                     <%--<asp:BoundField DataField="type" HeaderText="ทีม" SortExpression="type">
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>--%>
@@ -139,22 +141,34 @@
                     <asp:BoundField DataField="count_pmcm" HeaderText="ปฎิบัติงาน(ครั้ง)" SortExpression="count_pmcm">
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:ButtonField CommandName="cmd_edit" HeaderImageUrl="~/images/icon_edit.gif" Text="Location" />
-                    <asp:ButtonField CommandName="cmd_pic" HeaderImageUrl="~/images/icon_view.gif" Text="Pic" />
-                    <asp:ButtonField CommandName="cmd_detail" HeaderImageUrl="~/images/icon_view.gif"
-                        Text="Detail" />
-                    <asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="View" />
+                    <%-- <asp:ButtonField CommandName="cmd_edit" HeaderImageUrl="~/images/icon_edit.gif" Text="Location" />
+                            <asp:ButtonField CommandName="cmd_pic" HeaderImageUrl="~/images/icon_view.gif" Text="Pic" />
+                            <asp:ButtonField CommandName="cmd_detail" HeaderImageUrl="~/images/icon_view.gif"
+                                Text="Detail" />--%>
+                    <asp:ButtonField CommandName="cmd_edit" Text="Edit" HeaderText="สถานที่/รหัส" ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:ButtonField>
+                    <asp:ButtonField CommandName="cmd_pic" Text="Pic" HeaderText="รูปภาพ" ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:ButtonField>
+                    <asp:ButtonField CommandName="cmd_detail" Text="Detail" HeaderText="รายละเอียด" ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:ButtonField>
+                    <asp:ButtonField CommandName="cmdView" Text="View" HeaderText="ประวัติ" HeaderStyle-HorizontalAlign="Center" >
+<HeaderStyle HorizontalAlign="Center"></HeaderStyle>
+                    </asp:ButtonField>
+                    <%--<asp:ButtonField CommandName="cmdView" HeaderImageUrl="~/images/icon_view.gif" Text="View" />--%>
                 </Columns>
-                <EditRowStyle BackColor="#7C6F57" />
-                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#E3EAEB" />
-                <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                <SortedAscendingHeaderStyle BackColor="#246B61" />
-                <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                <SortedDescendingHeaderStyle BackColor="#15524A" />
+                <EmptyDataRowStyle BackColor="#FFFF99" ForeColor="#FF66FF" HorizontalAlign="Center" />
+                <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
+                <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
+                <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
+                <RowStyle BackColor="White" ForeColor="#330099" />
+                <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
+                <SortedAscendingCellStyle BackColor="#FEFCEB" />
+                <SortedAscendingHeaderStyle BackColor="#AF0101" />
+                <SortedDescendingCellStyle BackColor="#F6F0C0" />
+                <SortedDescendingHeaderStyle BackColor="#7E0000" />
             </asp:GridView>
             <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="dbname"
                 DataSourceID="SqlDataSource5" EmptyDataText="No records found" OnRowCommand="GridView2_RowCommand"
@@ -163,15 +177,15 @@
                 Visible="False">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:BoundField DataField="dbname" HeaderText="dbname" ReadOnly="True" SortExpression="dbname" />
+                    <asp:BoundField DataField="dbname" HeaderText="ลำดับ" ReadOnly="True" SortExpression="dbname" />
                     <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" ReadOnly="True" SortExpression="op_id">
                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location" />
-                    <%--<asp:BoundField DataField="product" HeaderText="ผลิตภัณฑ์" 
-                            SortExpression="product">
+                    <asp:BoundField DataField="office" HeaderText="พื้นที่" 
+                            SortExpression="office">
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>--%>
+                        </asp:BoundField>
                     <%--<asp:BoundField DataField="type" HeaderText="ทีม" SortExpression="type">
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>--%>
@@ -241,6 +255,13 @@
             SelectCommand="SELECT dbname, count_pmcm, op_id, location, office, id_type_frtu FROM sa.View_device_list WHERE (office = @office) AND (id_type_frtu = @id_type_frtu)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="DropDownList1" Name="office" PropertyName="SelectedValue" />
+                <asp:ControlParameter ControlID="RadioButtonList1" Name="id_type_frtu" PropertyName="SelectedValue" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource6" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>"
+            SelectCommand="SELECT dbname, count_pmcm, op_id, location, office, id_type_frtu FROM sa.View_device_list WHERE (id_type_frtu = @id_type_frtu)">
+            <SelectParameters>
+
                 <asp:ControlParameter ControlID="RadioButtonList1" Name="id_type_frtu" PropertyName="SelectedValue" />
             </SelectParameters>
         </asp:SqlDataSource>

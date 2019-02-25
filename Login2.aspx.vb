@@ -153,7 +153,7 @@ Partial Class Login
                 Else
                     userLogin = Nothing
                     Session("User") = Nothing
-                    lblMessage.Text = "User ยังไม่ได้รับการยืนยัน"
+                    lblMessage.Text = "User Invalid"
                 End If
             Else
                 userLogin = Nothing

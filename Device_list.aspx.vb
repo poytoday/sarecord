@@ -78,14 +78,7 @@ Partial Class Device_list
 
         Me.DropDownList1.Visible = True
         Me.GridView2.Visible = True
-        '    'Me.GridView1.Visible = False
-        '    'Me.GridView2.Visible = True
-        'Else
-        '    Me.Label1.Visible = False
-        '    Me.DropDownList1.Visible = False
-        'Me.GridView1.Visible = True
-        'Me.GridView2.Visible = False
-        'End If
+        Me.CheckBox1.Visible = True
     End Sub
 
     Protected Sub RadioButtonList2_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles RadioButtonList2.SelectedIndexChanged
@@ -145,5 +138,19 @@ Partial Class Device_list
     End Sub
     Public Overloads Overrides Sub VerifyRenderingInServerForm(ByVal control As Control)
 
+    End Sub
+    Protected Sub CheckBox1_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CheckBox1.CheckedChanged
+        If Me.CheckBox1.Checked = True Then
+
+            Me.GridView1.Visible = True
+            Me.GridView2.Visible = False
+            Me.SqlDataSource6.DataBind()
+            Me.DropDownList1.Visible = False
+        Else
+            Me.GridView2.Visible = True
+            Me.GridView1.Visible = False
+            Me.SqlDataSource5.DataBind()
+            Me.DropDownList1.Visible = True
+        End If
     End Sub
 End Class
