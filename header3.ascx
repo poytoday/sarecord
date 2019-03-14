@@ -126,6 +126,7 @@
                         <li><a href="order_region_his.aspx">เรียกดูงานตามสถานะ(อก.)</a></li>
                          <li><a href="issue_office.aspx">ตรวจสอบงานทั้งเขต(ต้นทาง)</a></li>
                          <li><a href="issue_region.aspx">ตรวจสอบงานทั้งเขต(ปลายทาง)</a></li>
+                         <li><a href="issue_region_type.aspx">ตรวจสอบงานทั้งเขต(ประเภทอุปกรณ์)</a></li>
                         <%--<li><a href="list_location.aspx">ประวัติการย้ายอุปกรณ์</a></li>--%>
                     </ul>
                     <!--[if lte IE 6]></td></tr></table></a><![endif]-->

@@ -63,10 +63,7 @@
                    
                     
                     <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
+                     <asp:BoundField DataField="send_damage_id" HeaderText="เลขใบสั่ง(SA)" SortExpression="send_damage_id" />
                     <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
@@ -152,7 +149,7 @@
                     
                     <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
                     <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
+                    <asp:BoundField DataField="send_damage_id" HeaderText="เลขใบสั่ง(SA)" SortExpression="send_damage_id" />
                     <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
                     <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
                     <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
@@ -243,10 +240,7 @@
                    
                     
                     <asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                    <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
+                     <asp:BoundField DataField="send_damage_id" HeaderText="เลขใบสั่ง(SA)" SortExpression="send_damage_id" />
                     <asp:BoundField DataField="from_program" HeaderText="ผู้แจ้ง" SortExpression="from_program" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
