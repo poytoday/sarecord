@@ -117,7 +117,7 @@
             </table>
             <br />
           <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="dbname"
-                DataSourceID="SqlDataSource6" EmptyDataText="No records found" OnRowCommand="GridView2_RowCommand"
+                DataSourceID="SqlDataSource6" EmptyDataText="No records found" OnRowCommand="GridView1_RowCommand"
                 PageSize="20" CellPadding="4" Width="99%"
                 BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px"
                 Visible="False">
