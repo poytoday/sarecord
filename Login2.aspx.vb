@@ -47,22 +47,22 @@ Partial Class Login
             Dim session As HttpCookie = Request.Cookies("Login")
             Dim ck_id As HttpCookie = Request.Cookies("LoginID")
             ''
-            If session.Value = True And ck_id.Value <> "" Then
+            'If session.Value = True And ck_id.Value <> "" Then
 
 
-                login_sa(ck_id.Value)
-                'login_sa(444678)
-                Response.Redirect(session("firstpage").ToString)
+            '    login_sa(ck_id.Value)
+            '    'login_sa(444678)
+            '    Response.Redirect(session("firstpage").ToString)
 
 
 
-            Else
-                Response.Redirect("http://smartdata.pea.co.th")
-            End If
+            'Else
+            '    Response.Redirect("http://smartdata.pea.co.th")
+            'End If
 
 
-            'test Login
-            'login_sa(495151)
+            ''test Login
+            login_sa(455556)
 
 
             'Response.Redirect(session("firstpage").ToString)

@@ -58,43 +58,14 @@
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" 
                 BorderWidth="1px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id" ForeColor="Black" AllowPaging="True">
                 <Columns>
-                    <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
-                        ReadOnly="True" SortExpression="receive_damage_id" />--%>
-                    <%--<asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location"
-                        ReadOnly="True">
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" 
-                    SortExpression="pmcm_id" />--%>
-                    <%--<asp:ButtonField CommandName="cmdAdd" HeaderImageUrl="~/images/icon_view.gif" Text="Add" />--%>
-                    <%--<asp:BoundField DataField="receive_damage_id" HeaderText="receive_damage_id" 
-                        SortExpression="receive_damage_id" >
-                    </asp:BoundField>--%>
-                      <%--<asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id">
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" 
-                        SortExpression="send_damage_id" InsertVisible="False" ReadOnly="True">
-                    </asp:BoundField>--%>
-<%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
-                        SortExpression="db_name">
-</asp:BoundField>--%>
                     <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False"/>
-                   
-                    
-                    <%--<asp:BoundField DataField="book_num" HeaderText="เลขที่หนังสือ" SortExpression="book_num" />--%>
-                    <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
-                   
-                    <%--<asp:BoundField DataField="name" HeaderText="name" SortExpression="name" />--%>
+
                      <asp:BoundField DataField="name_send" HeaderText="ผู้แจ้ง" SortExpression="name_send" />
                      <asp:BoundField DataField="office_name" HeaderText="แจ้งไปยังแผนก" SortExpression="office_name" />
                     <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage" />
                      <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" 
                         SortExpression="operation_order">
                     </asp:BoundField>
-                    <%--<asp:BoundField DataField="date_recive" HeaderText="วันที่รับแจ้ง" SortExpression="date_recive" />--%>
-
-                    <%--<asp:BoundField DataField="operation_recive" HeaderText="ให้ดำเนินการ" SortExpression="operation_recive" />--%>
                      <asp:ButtonField CommandName="cmdDelete" HeaderImageUrl="~/images/icon_view.gif" Text="ลบงาน" />
                 </Columns>
                 <EmptyDataRowStyle HorizontalAlign="Center" />
@@ -113,7 +84,6 @@
                 SelectCommandType="StoredProcedure">
               
                <SelectParameters>
-                    <%--<asp:SessionParameter Name="office_name" SessionField="UserRegion" Type="string" DefaultValue="498934" />--%>
                      <asp:Parameter Name="status" Type="string" DefaultValue="1" />
                       <asp:ControlParameter ControlID="DropDownList3" Name="office_name" 
                                             PropertyName="SelectedValue" />
@@ -135,24 +105,24 @@
                 Width="99%" AllowSorting="True" BackColor="White" BorderColor="#336666" BorderStyle="Double" 
                 BorderWidth="3px" CellPadding="4" GridLines="Horizontal" DataKeyNames="send_damage_id" AllowPaging="True">
                 <Columns>
-                    <%--<asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
-                        ReadOnly="True" SortExpression="receive_damage_id" />--%>
-                    <%--<asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location"
+                    <asp:BoundField DataField="receive_damage_id" HeaderText="ลำดับ" InsertVisible="False"
+                        ReadOnly="True" SortExpression="receive_damage_id" />
+                    <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location"
                         ReadOnly="True">
                         <ItemStyle HorizontalAlign="Center" />
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" 
-                    SortExpression="pmcm_id" />--%>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" 
+                    SortExpression="pmcm_id" />
                     <%--<asp:ButtonField CommandName="cmdAdd" HeaderImageUrl="~/images/icon_view.gif" Text="Add" />--%>
                     <%--<asp:BoundField DataField="receive_damage_id" HeaderText="receive_damage_id" 
                         SortExpression="receive_damage_id" >
                     </asp:BoundField>--%>
-                      <%--<asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id">
-                    </asp:BoundField>--%>
-                    <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" 
+<%--                      <asp:BoundField DataField="emp_id" HeaderText="emp_id" SortExpression="emp_id">
+                    </asp:BoundField>
+                    <asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" 
                         SortExpression="send_damage_id" InsertVisible="False" ReadOnly="True">
-                    </asp:BoundField>--%>
-<%--<asp:BoundField DataField="db_name" HeaderText="db_name" 
+                    </asp:BoundField>
+<asp:BoundField DataField="db_name" HeaderText="db_name" 
                         SortExpression="db_name">
 </asp:BoundField>--%>
                     <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in" DataFormatString="{0:dd/MM/yyyy}"  HtmlEncode="False">

@@ -164,7 +164,7 @@
                                             <asp:BoundField DataField="damage" HeaderText="อาการชำรุด" SortExpression="damage"></asp:BoundField>
                                             <asp:BoundField DataField="operation_order" HeaderText="หมายเหตุ" SortExpression="operation_order"></asp:BoundField>
 
-                                            <asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />
+                                            <asp:BoundField DataField="receive_damage_id" HeaderText="เลขที่รับงาน" SortExpression="receive_damage_id" />
                                         </Columns>
                                         <EditRowStyle BackColor="#999999" />
                                         <EmptyDataRowStyle HorizontalAlign="Center" />
@@ -178,10 +178,12 @@
                                         <SortedDescendingCellStyle BackColor="#FFFDF8" />
                                         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT  [operation_recive],[damage] ,[operation_order],[date_in],[book_num],[receive_damage_id],[send_damage_id],[status],[from_program],[emp_id],[office_name]  FROM [SA_System].[sa].[View_recive_damage_emp_id] WHERE (emp_id = @Emp_ID)">
+                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT  [operation_recive],[damage] ,[operation_order],[date_in],[book_num],[receive_damage_id],[send_damage_id],[status],[from_program],[emp_id],[office_name]  FROM [SA_System].[sa].[View_recive_damage_emp_id] WHERE (emp_id = @Emp_ID) and (id_type_frtu = @P_id_type)">
                                         <SelectParameters>
                                             <asp:SessionParameter DefaultValue="" Name="office" SessionField="UserOffice" />
                                                 <asp:SessionParameter DefaultValue="" Name="Emp_ID" SessionField="UserName" Type="Int32" />
+                                                     <asp:ControlParameter ControlID="DD_Type_Device" Name="P_id_type" PropertyName="SelectedValue"
+                        Type="Int32" />
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                       <br />

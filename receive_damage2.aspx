@@ -312,12 +312,16 @@
                                         <%--<asp:BoundField DataField="send_damage_id" HeaderText="send_damage_id" InsertVisible="False" ReadOnly="True" SortExpression="send_damage_id" />--%>
                                          <asp:BoundField DataField="db_name" HeaderText="ลำดับ" SortExpression="db_name">
                                         </asp:BoundField>
+                                        <asp:BoundField DataField="op_id" HeaderText="รหัสอุปกรณ์" SortExpression="op_id">
+                                        </asp:BoundField>
+                                         <asp:BoundField DataField="location" HeaderText="สถานที่" SortExpression="location">
+                                        </asp:BoundField>
                                          <asp:BoundField DataField="date_in" HeaderText="วันที่แจ้ง" SortExpression="date_in"  DataFormatString="{0:dd/MMM/yyyy}"  HtmlEncode="False"  />
                                         <asp:BoundField DataField="name" HeaderText="ผู้รับผิดชอบ" SortExpression="name" />
                                         <%--<asp:BoundField DataField="position" HeaderText="position" SortExpression="position" />--%>
                                         
                                        
-                                        <asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />
+                                        <%--<asp:BoundField DataField="from_program" HeaderText="เปิดงานจาก" SortExpression="from_program" />--%>
                                         <%--<asp:CheckBoxField DataField="status" HeaderText="status" SortExpression="status" />--%>
                                         <%--<asp:BoundField DataField="pmcm_id" HeaderText="pmcm_id" SortExpression="pmcm_id" />--%>
                                         <%--<asp:BoundField DataField="office_name" HeaderText="office_name" SortExpression="office_name" />--%>
@@ -343,7 +347,7 @@
                                     <SortedDescendingHeaderStyle BackColor="#93451F" />
                                 </asp:GridView>
           
-                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT sa.Receive_damage_emp_id.receive_damage_id, sa.Receive_damage_emp_id.emp_id, sa.send_damage.send_damage_id, sa.send_damage.db_name, sa.send_damage.operation_order, sa.send_damage.date_in,sa.send_damage.from_program, sa.send_damage.book_num, sa.send_damage.status, sa.send_damage.pmcm_id, sa.send_damage.office_name, sa.[user].name, sa.[user].position, sa.send_damage.damage, sa.Receive_damage.operation_recive FROM sa.Receive_damage_emp_id INNER JOIN sa.Receive_damage ON sa.Receive_damage_emp_id.receive_damage_id = sa.Receive_damage.receive_damage_id INNER JOIN sa.send_damage ON sa.Receive_damage.send_damage_id = sa.send_damage.send_damage_id INNER JOIN sa.[user] ON sa.Receive_damage_emp_id.emp_id = sa.[user].userid WHERE (sa.send_damage.office_name = @office) ORDER BY sa.send_damage.date_in DESC">
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Deviec_SA_V1ConnectionString %>" SelectCommand="SELECT  [receive_damage_id],[emp_id],[send_damage_id],[operation_order],[date_in],[from_program],[book_num],[status],[pmcm_id],[office_name],[name],[position],[damage],[operation_recive],[op_id],[location],[db_name] FROM [SA_System].[sa].[View_recive_damage]  where [office_name] = @office">
                                     <SelectParameters>
                                         <asp:SessionParameter Name="office" SessionField="UserOffice" />
                                     </SelectParameters>
